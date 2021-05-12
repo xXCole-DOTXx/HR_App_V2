@@ -97,10 +97,8 @@ namespace HR_APP_V2.Controllers
             }
             string fullName = employee.First_Name + " " + employee.Last_Name;
             System.Diagnostics.Debug.WriteLine("Employee full name: " + fullName);
-            //ViewBag.Claim_Ruling_TypeID = new SelectList(db.Claim_Ruling_Type, "ID", "Claim_Ruling_Type1");
             ViewBag.EmployeeID = id;
             ViewBag.Name = fullName;
-            //ViewBag.WC_TypeID = new SelectList(db.WC_Type, "ID", "WC_Type1");
             return View();
         }
 
@@ -113,6 +111,14 @@ namespace HR_APP_V2.Controllers
         {
             if (ModelState.IsValid)
             {
+                var name = System.Web.HttpContext.Current.User.Identity.Name; //This doesnt quite work. Name ends up just blank
+                wC_Inbox.Add_User = name;
+                wC_Inbox.Date_Added = DateTime.Today;
+                wC_Inbox.InboxID = "WC" + wC_Inbox.ID + wC_Inbox.Date_Added + wC_Inbox.Org_Number;
+                System.Diagnostics.Debug.WriteLine("InboxID: " + wC_Inbox.InboxID);
+                System.Diagnostics.Debug.WriteLine("Add_User: " + wC_Inbox.Add_User);
+                System.Diagnostics.Debug.WriteLine("Date_Added: " + wC_Inbox.Date_Added);
+                System.Diagnostics.Debug.WriteLine("Name: " + name);
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
                 return RedirectToAction("Index");
