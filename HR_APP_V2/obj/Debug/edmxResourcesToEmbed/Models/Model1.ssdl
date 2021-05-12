@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Human_ResourcesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="Marital_Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="SSN" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="30" />
+    <Property Name="Phone_Number" Type="nvarchar" MaxLength="12" />
+    <Property Name="Add_User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date_Added" Type="date" />
+  </EntityType>
+  <EntityType Name="WC_Inbox">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InboxID" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="Org_Number" Type="int" Nullable="false" />
+    <Property Name="Hire_Date" Type="date" Nullable="false" />
+    <Property Name="Job_Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Work_Schedule" Type="int" Nullable="false" />
+    <Property Name="Injury_Date" Type="date" Nullable="false" />
+    <Property Name="Injury_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DOT_12" Type="bit" Nullable="false" />
+    <Property Name="Start_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Injured_Body_Part" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Side" Type="nvarchar" MaxLength="10" />
+    <Property Name="Missing_Work" Type="bit" Nullable="false" />
+    <Property Name="Return_to_Work_Date" Type="date" />
+    <Property Name="Doctors_Release" Type="bit" />
+    <Property Name="Treatment" Type="bit" />
+    <Property Name="Injury_Description" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Equipment" Type="nvarchar" MaxLength="250" />
+    <Property Name="Witness" Type="nvarchar" MaxLength="50" />
+    <Property Name="Questioned" Type="nvarchar" MaxLength="250" />
+    <Property Name="Medical_History" Type="nvarchar" MaxLength="250" />
+    <Property Name="Inbox_Submitted" Type="bit" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="250" />
+    <Property Name="User_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="Contact_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="Specialist_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="Optional_Email" Type="nvarchar" MaxLength="254" />
+    <Property Name="Optional_Email2" Type="nvarchar" MaxLength="254" />
+    <Property Name="Optional_Email3" Type="nvarchar" MaxLength="254" />
+    <Property Name="Optional_Email4" Type="nvarchar" MaxLength="254" />
+    <Property Name="Add_User" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_Added" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_WC_Inbox_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="WC_Inbox" Type="Self.WC_Inbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WC_Inbox">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Human_ResourcesModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WC_Inbox" EntityType="Self.WC_Inbox" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_WC_Inbox_Employee" Association="Self.FK_WC_Inbox_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="WC_Inbox" EntitySet="WC_Inbox" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

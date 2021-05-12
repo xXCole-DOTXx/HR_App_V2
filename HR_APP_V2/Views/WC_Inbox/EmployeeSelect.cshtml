@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<HR_APP_V2.Models.Employee>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "EmployeeSelect";
+}
+
+<h2>Select the employee for whom you are entering an injury form.</h2>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h3>Don't see who you're looking for? </h3>
+    </div>
+    <div class="col-sm-4" style="margin-top: 15px">
+        <p>@Html.ActionLink("Enter New Employee", "Create", "Employees", new { from = 1 }, new { @class = "btn btn-primary btn-large" })</p>
+    </div>
+</div>
+
+@using (Html.BeginForm("EmployeeSelect", "WC_Inbox", FormMethod.Get))
+{
+    <p>
+        Find by first or last name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.lNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Marital Status
+        </th>
+        <th>
+            SSN
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Phone Number
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marital_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone_Number)
+            </td>
+            <td>
+                @Html.ActionLink("Select", "Create", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

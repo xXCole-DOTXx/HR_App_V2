@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <img src="~/Images/transportation.png" alt="WV DOT" style="width: 1000px; height: 200px" />
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Enter an Injury Form</h2>
+        <p>
+            Enter injury form.
+        </p>
+        <p>
+            @Html.ActionLink("Enter injury form", "EmployeeSelect", "WC_Inbox", null, new { @class = "btn btn-primary btn-large" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Injury Forms</h2>
+        <p>
+            Injury forms list.
+        </p>
+        <p>
+            @Html.ActionLink("Injury Forms", "Index", "WC_Inbox", null, new { @class = "btn btn-primary btn-large" })
+        </p>
+    </div>
+</div>

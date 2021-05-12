@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Human_ResourcesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="Marital_Status" Type="nvarchar" MaxLength="10" />
+          <Property Name="SSN" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="30" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="12" />
+          <Property Name="Add_User" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Added" Type="date" />
+        </EntityType>
+        <EntityType Name="WC_Inbox">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InboxID" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="Org_Number" Type="int" Nullable="false" />
+          <Property Name="Hire_Date" Type="date" Nullable="false" />
+          <Property Name="Job_Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Work_Schedule" Type="int" Nullable="false" />
+          <Property Name="Injury_Date" Type="date" Nullable="false" />
+          <Property Name="Injury_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DOT_12" Type="bit" Nullable="false" />
+          <Property Name="Start_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Injured_Body_Part" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Side" Type="nvarchar" MaxLength="10" />
+          <Property Name="Missing_Work" Type="bit" Nullable="false" />
+          <Property Name="Return_to_Work_Date" Type="date" />
+          <Property Name="Doctors_Release" Type="bit" />
+          <Property Name="Treatment" Type="bit" />
+          <Property Name="Injury_Description" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Equipment" Type="nvarchar" MaxLength="250" />
+          <Property Name="Witness" Type="nvarchar" MaxLength="50" />
+          <Property Name="Questioned" Type="nvarchar" MaxLength="250" />
+          <Property Name="Medical_History" Type="nvarchar" MaxLength="250" />
+          <Property Name="Inbox_Submitted" Type="bit" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="250" />
+          <Property Name="User_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="Contact_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="Specialist_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="Optional_Email" Type="nvarchar" MaxLength="254" />
+          <Property Name="Optional_Email2" Type="nvarchar" MaxLength="254" />
+          <Property Name="Optional_Email3" Type="nvarchar" MaxLength="254" />
+          <Property Name="Optional_Email4" Type="nvarchar" MaxLength="254" />
+          <Property Name="Add_User" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_Added" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_WC_Inbox_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="WC_Inbox" Type="Self.WC_Inbox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WC_Inbox">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Human_ResourcesModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WC_Inbox" EntityType="Self.WC_Inbox" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_WC_Inbox_Employee" Association="Self.FK_WC_Inbox_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="WC_Inbox" EntitySet="WC_Inbox" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Human_ResourcesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Marital_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_Number" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Added" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="WC_Inbox" Relationship="Self.FK_WC_Inbox_Employee" FromRole="Employee" ToRole="WC_Inbox" />
+        </EntityType>
+        <EntityType Name="WC_Inbox">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="Org_Number" Type="Int32" Nullable="false" />
+          <Property Name="Hire_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Work_Schedule" Type="Int32" Nullable="false" />
+          <Property Name="Injury_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Injury_Time" Type="String" MaxLength="10" Nullable="false" Unicode="true" FixedLength="false" />
+          <Property Name="DOT_12" Type="Boolean" Nullable="false" />
+          <Property Name="Start_Time" Type="String" MaxLength="10" Nullable="false" Unicode="true" FixedLength="false" />
+          <Property Name="Injured_Body_Part" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Side" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Missing_Work" Type="Boolean" Nullable="false" />
+          <Property Name="Return_to_Work_Date" Type="DateTime" Precision="0" />
+          <Property Name="Doctors_Release" Type="Boolean" />
+          <Property Name="Treatment" Type="Boolean" />
+          <Property Name="Injury_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Equipment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Witness" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Questioned" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Medical_History" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Inbox_Submitted" Type="Boolean" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="User_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Specialist_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Optional_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Optional_Email2" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Optional_Email3" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Optional_Email4" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_WC_Inbox_Employee" FromRole="WC_Inbox" ToRole="Employee" />
+          <Property Name="InboxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_WC_Inbox_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="WC_Inbox" Type="Self.WC_Inbox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WC_Inbox">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Human_ResourcesEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="WC_Inbox" EntityType="Self.WC_Inbox" />
+          <AssociationSet Name="FK_WC_Inbox_Employee" Association="Self.FK_WC_Inbox_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="WC_Inbox" EntitySet="WC_Inbox" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Human_ResourcesModelStoreContainer" CdmEntityContainer="Human_ResourcesEntities1">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Human_ResourcesModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Marital_Status" ColumnName="Marital_Status" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Add_User" ColumnName="Add_User" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WC_Inbox">
+            <EntityTypeMapping TypeName="Human_ResourcesModel.WC_Inbox">
+              <MappingFragment StoreEntitySet="WC_Inbox">
+                <ScalarProperty Name="InboxID" ColumnName="InboxID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Org_Number" ColumnName="Org_Number" />
+                <ScalarProperty Name="Hire_Date" ColumnName="Hire_Date" />
+                <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+                <ScalarProperty Name="Work_Schedule" ColumnName="Work_Schedule" />
+                <ScalarProperty Name="Injury_Date" ColumnName="Injury_Date" />
+                <ScalarProperty Name="Injury_Time" ColumnName="Injury_Time" />
+                <ScalarProperty Name="DOT_12" ColumnName="DOT_12" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="Injured_Body_Part" ColumnName="Injured_Body_Part" />
+                <ScalarProperty Name="Side" ColumnName="Side" />
+                <ScalarProperty Name="Missing_Work" ColumnName="Missing_Work" />
+                <ScalarProperty Name="Return_to_Work_Date" ColumnName="Return_to_Work_Date" />
+                <ScalarProperty Name="Doctors_Release" ColumnName="Doctors_Release" />
+                <ScalarProperty Name="Treatment" ColumnName="Treatment" />
+                <ScalarProperty Name="Injury_Description" ColumnName="Injury_Description" />
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+                <ScalarProperty Name="Witness" ColumnName="Witness" />
+                <ScalarProperty Name="Questioned" ColumnName="Questioned" />
+                <ScalarProperty Name="Medical_History" ColumnName="Medical_History" />
+                <ScalarProperty Name="Inbox_Submitted" ColumnName="Inbox_Submitted" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+                <ScalarProperty Name="Contact_Email" ColumnName="Contact_Email" />
+                <ScalarProperty Name="Specialist_Email" ColumnName="Specialist_Email" />
+                <ScalarProperty Name="Optional_Email" ColumnName="Optional_Email" />
+                <ScalarProperty Name="Optional_Email2" ColumnName="Optional_Email2" />
+                <ScalarProperty Name="Optional_Email3" ColumnName="Optional_Email3" />
+                <ScalarProperty Name="Optional_Email4" ColumnName="Optional_Email4" />
+				<ScalarProperty Name="Add_User" ColumnName="Add_User" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
