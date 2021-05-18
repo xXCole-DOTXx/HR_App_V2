@@ -1,32 +1,30 @@
 ﻿@model HR_APP_V2.Models.WC_Inbox
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Details";
 }
 
-<h2>Delete</h2>
+<h2>@ViewBag.Name WC Inbox Form Details</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.InboxID)
+           First Name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InboxID)
+            @Html.DisplayFor(model => model.Employee.First_Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Org_Number)
+            Last Name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Org_Number)
+            @Html.DisplayFor(model => model.Employee.Last_Name)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Org_Number)
+            Org Number
         </dt>
 
         <dd>
@@ -266,21 +264,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Employee.First_Name)
+            @Html.DisplayNameFor(model => model.InboxID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Employee.First_Name)
+            @Html.DisplayFor(model => model.InboxID)
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

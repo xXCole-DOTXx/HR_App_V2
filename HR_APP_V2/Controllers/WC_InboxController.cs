@@ -79,6 +79,12 @@ namespace HR_APP_V2.Controllers
             {
                 return HttpNotFound();
             }
+
+            Employee employee = db.Employees.Find(wC_Inbox.EmployeeID);
+            string fullName = employee.First_Name + " " + employee.Last_Name;
+            System.Diagnostics.Debug.WriteLine("Employee full name: " + fullName);
+            ViewBag.EmployeeID = id;
+            ViewBag.Name = fullName;
             return View(wC_Inbox);
         }
 
@@ -113,6 +119,7 @@ namespace HR_APP_V2.Controllers
             {
                 var name = System.Web.HttpContext.Current.User.Identity.Name; //This doesnt quite work. Name ends up just blank
                 wC_Inbox.Add_User = name;
+
                 wC_Inbox.Date_Added = DateTime.Today;
                 wC_Inbox.InboxID = "WC" + wC_Inbox.ID + wC_Inbox.Date_Added + wC_Inbox.Org_Number;
                 System.Diagnostics.Debug.WriteLine("InboxID: " + wC_Inbox.InboxID);
@@ -140,7 +147,13 @@ namespace HR_APP_V2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeID = new SelectList(db.Employees, "ID", "First_Name", wC_Inbox.EmployeeID);
+
+            Employee employee = db.Employees.Find(wC_Inbox.EmployeeID);
+            string fullName = employee.First_Name + " " + employee.Last_Name;
+            System.Diagnostics.Debug.WriteLine("Employee full name: " + fullName);
+            ViewBag.EmployeeID = id;
+            ViewBag.Name = fullName;
+
             return View(wC_Inbox);
         }
 
