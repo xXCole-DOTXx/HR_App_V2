@@ -117,15 +117,11 @@ namespace HR_APP_V2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var name = System.Web.HttpContext.Current.User.Identity.Name; //This doesnt quite work. Name ends up just blank
-                wC_Inbox.Add_User = name;
-
+                //Get logged in windows user, get the date right now, and create the wcInbox unique ID
+                var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                wC_Inbox.Add_User = userName;
                 wC_Inbox.Date_Added = DateTime.Today;
                 wC_Inbox.InboxID = "WC" + wC_Inbox.ID + wC_Inbox.Date_Added + wC_Inbox.Org_Number;
-                System.Diagnostics.Debug.WriteLine("InboxID: " + wC_Inbox.InboxID);
-                System.Diagnostics.Debug.WriteLine("Add_User: " + wC_Inbox.Add_User);
-                System.Diagnostics.Debug.WriteLine("Date_Added: " + wC_Inbox.Date_Added);
-                System.Diagnostics.Debug.WriteLine("Name: " + name);
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
                 return RedirectToAction("Index");
