@@ -25,7 +25,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="InboxID" Type="nvarchar" MaxLength="50" />
+          <Property Name="EncovaID" Type="nvarchar" MaxLength="50" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="Org_Number" Type="int" Nullable="false" />
           <Property Name="Hire_Date" Type="date" Nullable="false" />
@@ -55,8 +55,25 @@
           <Property Name="Optional_Email2" Type="nvarchar" MaxLength="254" />
           <Property Name="Optional_Email3" Type="nvarchar" MaxLength="254" />
           <Property Name="Optional_Email4" Type="nvarchar" MaxLength="254" />
+          <Property Name="TX_EROI_lag" Type="date" />
+          <Property Name="Claim_Ruling" Type="nvarchar" MaxLength="50" />
+          <Property Name="Injury_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="TTD_Onset_Date" Type="date" />
+          <Property Name="Restricted_RTW" Type="date" />
+          <Property Name="Full_Duty_RTW" Type="date" />
+          <Property Name="TTD_Award_notice" Type="date" />
+          <Property Name="RTW_Notice_Carrier" Type="date" />
+          <Property Name="Lost_Time_Start1" Type="date" />
+          <Property Name="Lost_Time_End1" Type="date" />
+          <Property Name="Lost_Time_Start2" Type="date" />
+          <Property Name="Lost_Time_End2" Type="date" />
+          <Property Name="Lost_Time_Start3" Type="date" />
+          <Property Name="Lost_Time_End3" Type="date" />
+          <Property Name="HR_Comments" Type="nvarchar" MaxLength="250" />
           <Property Name="Add_User" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date_Added" Type="date" Nullable="false" />
+          <Property Name="HR_User" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Modified" Type="date" />
         </EntityType>
         <Association Name="FK_WC_Inbox_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
@@ -135,7 +152,24 @@
           <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_WC_Inbox_Employee" FromRole="WC_Inbox" ToRole="Employee" />
-          <Property Name="InboxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EncovaID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TX_EROI_lag" Type="DateTime" Precision="0" />
+          <Property Name="Claim_Ruling" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Injury_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TTD_Onset_Date" Type="DateTime" Precision="0" />
+          <Property Name="Restricted_RTW" Type="DateTime" Precision="0" />
+          <Property Name="Full_Duty_RTW" Type="DateTime" Precision="0" />
+          <Property Name="TTD_Award_notice" Type="DateTime" Precision="0" />
+          <Property Name="RTW_Notice_Carrier" Type="DateTime" Precision="0" />
+          <Property Name="Lost_Time_Start1" Type="DateTime" Precision="0" />
+          <Property Name="Lost_Time_End1" Type="DateTime" Precision="0" />
+          <Property Name="Lost_Time_Start2" Type="DateTime" Precision="0" />
+          <Property Name="Lost_Time_End2" Type="DateTime" Precision="0" />
+          <Property Name="Lost_Time_Start3" Type="DateTime" Precision="0" />
+          <Property Name="Lost_Time_End3" Type="DateTime" Precision="0" />
+          <Property Name="HR_Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HR_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Modified" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_WC_Inbox_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
@@ -182,7 +216,24 @@
           <EntitySetMapping Name="WC_Inbox">
             <EntityTypeMapping TypeName="Human_ResourcesModel.WC_Inbox">
               <MappingFragment StoreEntitySet="WC_Inbox">
-                <ScalarProperty Name="InboxID" ColumnName="InboxID" />
+                <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+                <ScalarProperty Name="HR_User" ColumnName="HR_User" />
+                <ScalarProperty Name="HR_Comments" ColumnName="HR_Comments" />
+                <ScalarProperty Name="Lost_Time_End3" ColumnName="Lost_Time_End3" />
+                <ScalarProperty Name="Lost_Time_Start3" ColumnName="Lost_Time_Start3" />
+                <ScalarProperty Name="Lost_Time_End2" ColumnName="Lost_Time_End2" />
+                <ScalarProperty Name="Lost_Time_Start2" ColumnName="Lost_Time_Start2" />
+                <ScalarProperty Name="Lost_Time_End1" ColumnName="Lost_Time_End1" />
+                <ScalarProperty Name="Lost_Time_Start1" ColumnName="Lost_Time_Start1" />
+                <ScalarProperty Name="RTW_Notice_Carrier" ColumnName="RTW_Notice_Carrier" />
+                <ScalarProperty Name="TTD_Award_notice" ColumnName="TTD_Award_notice" />
+                <ScalarProperty Name="Full_Duty_RTW" ColumnName="Full_Duty_RTW" />
+                <ScalarProperty Name="Restricted_RTW" ColumnName="Restricted_RTW" />
+                <ScalarProperty Name="TTD_Onset_Date" ColumnName="TTD_Onset_Date" />
+                <ScalarProperty Name="Injury_Type" ColumnName="Injury_Type" />
+                <ScalarProperty Name="Claim_Ruling" ColumnName="Claim_Ruling" />
+                <ScalarProperty Name="TX_EROI_lag" ColumnName="TX_EROI_lag" />
+                <ScalarProperty Name="EncovaID" ColumnName="EncovaID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Org_Number" ColumnName="Org_Number" />

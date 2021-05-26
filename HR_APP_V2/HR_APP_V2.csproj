@@ -229,6 +229,7 @@
     <Content Include="Views\WC_Inbox\Index.cshtml" />
     <Content Include="Views\WC_Inbox\EmployeeSelect.cshtml" />
     <Content Include="Views\WC_Inbox\Details.cshtml" />
+    <Content Include="Views\WC_Inbox\Work.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

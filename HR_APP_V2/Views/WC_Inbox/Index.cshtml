@@ -61,13 +61,6 @@
             </div>
 
             <div class="col-md-4">
-                <b>Inbox ID:</b>
-                <p>
-                    @Html.DisplayFor(modelItem => item.InboxID)
-                </p>
-            </div>
-
-            <div class="col-md-4">
                 <b>Title:</b>
                 <p>
                     @Html.DisplayFor(modelItem => item.Job_Title)
@@ -92,6 +85,24 @@
                 <div class="col-md-4">
                     <p>
                         @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </p>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <p>
+                        @Html.ActionLink("Archive", "Delete", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
+                    </p>
+                </div>
+
+                <div class="col-md-4"></div>
+
+                <div class="col-md-4">
+                    <p>
+                        @Html.ActionLink("Work", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
                     </p>
                 </div>
             </div>

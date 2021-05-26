@@ -46,7 +46,24 @@ namespace HR_APP_V2.Models
         public string Optional_Email4 { get; set; }
         public string Add_User { get; set; }
         public System.DateTime Date_Added { get; set; }
-        public string InboxID { get; set; }
+        public string EncovaID { get; set; }
+        public Nullable<System.DateTime> TX_EROI_lag { get; set; }
+        public string Claim_Ruling { get; set; }
+        public string Injury_Type { get; set; }
+        public Nullable<System.DateTime> TTD_Onset_Date { get; set; }
+        public Nullable<System.DateTime> Restricted_RTW { get; set; }
+        public Nullable<System.DateTime> Full_Duty_RTW { get; set; }
+        public Nullable<System.DateTime> TTD_Award_notice { get; set; }
+        public Nullable<System.DateTime> RTW_Notice_Carrier { get; set; }
+        public Nullable<System.DateTime> Lost_Time_Start1 { get; set; }
+        public Nullable<System.DateTime> Lost_Time_End1 { get; set; }
+        public Nullable<System.DateTime> Lost_Time_Start2 { get; set; }
+        public Nullable<System.DateTime> Lost_Time_End2 { get; set; }
+        public Nullable<System.DateTime> Lost_Time_Start3 { get; set; }
+        public Nullable<System.DateTime> Lost_Time_End3 { get; set; }
+        public string HR_Comments { get; set; }
+        public string HR_User { get; set; }
+        public Nullable<System.DateTime> Date_Modified { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

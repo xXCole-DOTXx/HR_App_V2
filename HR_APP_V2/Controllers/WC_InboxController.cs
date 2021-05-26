@@ -121,7 +121,6 @@ namespace HR_APP_V2.Controllers
                 var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 wC_Inbox.Add_User = userName;
                 wC_Inbox.Date_Added = DateTime.Today;
-                wC_Inbox.InboxID = "WC" + wC_Inbox.ID + wC_Inbox.Date_Added + wC_Inbox.Org_Number;
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -159,6 +158,45 @@ namespace HR_APP_V2.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,InboxID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Add_User,Date_Added")] WC_Inbox wC_Inbox)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(wC_Inbox).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.EmployeeID = new SelectList(db.Employees, "ID", "First_Name", wC_Inbox.EmployeeID);
+            return View(wC_Inbox);
+        }
+
+        // GET: WC_Inbox/Work/5
+        public ActionResult Work(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WC_Inbox wC_Inbox = db.WC_Inbox.Find(id);
+            if (wC_Inbox == null)
+            {
+                return HttpNotFound();
+            }
+
+            Employee employee = db.Employees.Find(wC_Inbox.EmployeeID);
+            string fullName = employee.First_Name + " " + employee.Last_Name;
+            System.Diagnostics.Debug.WriteLine("Employee full name: " + fullName);
+            ViewBag.EmployeeID = id;
+            ViewBag.Name = fullName;
+
+            return View(wC_Inbox);
+        }
+
+        // POST: WC_Inbox/Work/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Work([Bind(Include = "ID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Add_User,Date_Added,TX_EROI_lag,Claim_Ruling,Injury_Type,TTD_Onset_Date,Restricted_RTW,Full_Duty_RTW,TTD_Award_notice,RTW_Notice_Carrier,Lost_Time_Start1,Lost_Time_End1,Lost_Time_Start2,Lost_Time_End2,Lost_Time_Start3,Lost_Time_End3,HR_Comments,HR_User,Date_Modified")] WC_Inbox wC_Inbox)
         {
             if (ModelState.IsValid)
             {

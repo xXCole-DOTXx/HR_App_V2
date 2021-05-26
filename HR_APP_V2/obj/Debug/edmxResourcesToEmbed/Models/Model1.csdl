@@ -53,7 +53,24 @@
     <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="Employee" Relationship="Self.FK_WC_Inbox_Employee" FromRole="WC_Inbox" ToRole="Employee" />
-    <Property Name="InboxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EncovaID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TX_EROI_lag" Type="DateTime" Precision="0" />
+    <Property Name="Claim_Ruling" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Injury_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TTD_Onset_Date" Type="DateTime" Precision="0" />
+    <Property Name="Restricted_RTW" Type="DateTime" Precision="0" />
+    <Property Name="Full_Duty_RTW" Type="DateTime" Precision="0" />
+    <Property Name="TTD_Award_notice" Type="DateTime" Precision="0" />
+    <Property Name="RTW_Notice_Carrier" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_Start1" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_End1" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_Start2" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_End2" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_Start3" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_End3" Type="DateTime" Precision="0" />
+    <Property Name="HR_Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HR_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Modified" Type="DateTime" Precision="0" />
   </EntityType>
   <Association Name="FK_WC_Inbox_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />

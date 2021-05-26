@@ -20,7 +20,24 @@
     <EntitySetMapping Name="WC_Inbox">
       <EntityTypeMapping TypeName="Human_ResourcesModel.WC_Inbox">
         <MappingFragment StoreEntitySet="WC_Inbox">
-          <ScalarProperty Name="InboxID" ColumnName="InboxID" />
+          <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+          <ScalarProperty Name="HR_User" ColumnName="HR_User" />
+          <ScalarProperty Name="HR_Comments" ColumnName="HR_Comments" />
+          <ScalarProperty Name="Lost_Time_End3" ColumnName="Lost_Time_End3" />
+          <ScalarProperty Name="Lost_Time_Start3" ColumnName="Lost_Time_Start3" />
+          <ScalarProperty Name="Lost_Time_End2" ColumnName="Lost_Time_End2" />
+          <ScalarProperty Name="Lost_Time_Start2" ColumnName="Lost_Time_Start2" />
+          <ScalarProperty Name="Lost_Time_End1" ColumnName="Lost_Time_End1" />
+          <ScalarProperty Name="Lost_Time_Start1" ColumnName="Lost_Time_Start1" />
+          <ScalarProperty Name="RTW_Notice_Carrier" ColumnName="RTW_Notice_Carrier" />
+          <ScalarProperty Name="TTD_Award_notice" ColumnName="TTD_Award_notice" />
+          <ScalarProperty Name="Full_Duty_RTW" ColumnName="Full_Duty_RTW" />
+          <ScalarProperty Name="Restricted_RTW" ColumnName="Restricted_RTW" />
+          <ScalarProperty Name="TTD_Onset_Date" ColumnName="TTD_Onset_Date" />
+          <ScalarProperty Name="Injury_Type" ColumnName="Injury_Type" />
+          <ScalarProperty Name="Claim_Ruling" ColumnName="Claim_Ruling" />
+          <ScalarProperty Name="TX_EROI_lag" ColumnName="TX_EROI_lag" />
+          <ScalarProperty Name="EncovaID" ColumnName="EncovaID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="Org_Number" ColumnName="Org_Number" />
