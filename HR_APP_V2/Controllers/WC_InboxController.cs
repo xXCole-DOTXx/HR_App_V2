@@ -16,9 +16,26 @@ namespace HR_APP_V2.Controllers
         private Human_ResourcesEntities1 db = new Human_ResourcesEntities1();
 
         // GET: WC_Inbox
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var wC_Inbox = db.WC_Inbox.Include(w => w.Employee);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                wC_Inbox = wC_Inbox.Where(s => s.EncovaID.Contains(searchString)
+                                       || s.Org_Number.ToString().Contains(searchString)
+                                       || s.Employee.First_Name.Contains(searchString)
+                                       || s.Employee.Last_Name.Contains(searchString));
+            }
+
+            return View(wC_Inbox.ToList());
+        }
+
+        // GET: WC_Inbox
+        public ActionResult Archive()
+        {
+            var wC_Inbox = db.WC_Inbox.Include(w => w.Employee);
+            wC_Inbox = wC_Inbox.Where(s => s.Status == "Archived");
             return View(wC_Inbox.ToList());
         }
 
@@ -197,7 +214,7 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Work([Bind(Include = "ID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Add_User,Date_Added,TX_EROI_lag,Claim_Ruling,Injury_Type,TTD_Onset_Date,Restricted_RTW,Full_Duty_RTW,TTD_Award_notice,RTW_Notice_Carrier,Lost_Time_Start1,Lost_Time_End1,Lost_Time_Start2,Lost_Time_End2,Lost_Time_Start3,Lost_Time_End3,Status,HR_Comments,HR_User,Date_Modified")] WC_Inbox wC_Inbox)
+        public ActionResult Work([Bind(Include = "ID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Add_User,Date_Added,TX_EROI_lag,Claim_Ruling,Injury_Type,TTD_Onset_Date,Restricted_RTW,Full_Duty_RTW,TTD_Award_notice,RTW_Notice_Carrier,Lost_Time_Start1,Lost_Time_End1,Lost_Time_Start2,Lost_Time_End2,Lost_Time_Start3,Lost_Time_End3,Status,HR_Comments,EncovaID,HR_User,Date_Modified")] WC_Inbox wC_Inbox)
         {
             if (ModelState.IsValid)
             {

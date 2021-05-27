@@ -1,22 +1,11 @@
 ﻿@model IEnumerable<HR_APP_V2.Models.WC_Inbox>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Archive";
 }
 
-<h2>WC Inbox Workflow</h2>
+<h2>Archive</h2>
 
-<p>
-    @Html.ActionLink("Create New", "EmployeeSelect")
-</p>
-
-@using (Html.BeginForm())
-{
-    <p>
-        Search: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
-}
 
 @foreach (var item in Model)
 {
@@ -39,16 +28,16 @@
             <div class="row">
 
                 <div class="col-md-4">
-                    <b>Employee Name:</b>
+                    <b>Employee First Name:</b>
                     <p>
-                        @Html.DisplayFor(modelItem => item.Employee.First_Name)  @Html.DisplayFor(modelItem => item.Employee.Last_Name)
+                        @Html.DisplayFor(modelItem => item.Employee.First_Name)
                     </p>
                 </div>
 
                 <div class="col-md-4">
-                    <b>Encova ID:</b>
+                    <b>Employee Last Name:</b>
                     <p>
-                        @Html.DisplayFor(modelItem => item.EncovaID)
+                        @Html.DisplayFor(modelItem => item.Employee.Last_Name)
                     </p>
                 </div>
 
@@ -69,9 +58,9 @@
             </div>
 
             <div class="col-md-4">
-                <b>Injury Type:</b>
+                <b>Title:</b>
                 <p>
-                    @Html.DisplayFor(modelItem => item.Injury_Type)
+                    @Html.DisplayFor(modelItem => item.Job_Title)
                 </p>
             </div>
 
@@ -87,9 +76,7 @@
             <div class="row"></div>
             <div class="row">
                 <div class="col-md-4">
-                    <p>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                    </p>
+            
                 </div>
 
                 <div class="col-md-4">
@@ -99,9 +86,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <p>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                    </p>
+
                 </div>
             </div>
 
@@ -116,18 +101,17 @@
 
                 <div class="col-md-4">
                     <p>
-                        @Html.ActionLink("Work", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Reopen", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
                     </p>
                 </div>
             </div>
+
+
+
 
         </div>
 
     </div>
 
 }
-
-<p>
-    @Html.ActionLink("Return to full list", "Index")
-</p>
 
