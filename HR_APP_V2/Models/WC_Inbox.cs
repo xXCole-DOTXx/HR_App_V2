@@ -64,6 +64,7 @@ namespace HR_APP_V2.Models
         public string HR_Comments { get; set; }
         public string HR_User { get; set; }
         public Nullable<System.DateTime> Date_Modified { get; set; }
+        public string Status { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

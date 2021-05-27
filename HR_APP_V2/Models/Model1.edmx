@@ -69,6 +69,7 @@
           <Property Name="Lost_Time_End2" Type="date" />
           <Property Name="Lost_Time_Start3" Type="date" />
           <Property Name="Lost_Time_End3" Type="date" />
+          <Property Name="Status" Type="nvarchar" MaxLength="25" />
           <Property Name="HR_Comments" Type="nvarchar" MaxLength="250" />
           <Property Name="Add_User" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date_Added" Type="date" Nullable="false" />
@@ -170,6 +171,7 @@
           <Property Name="HR_Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HR_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_WC_Inbox_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
@@ -216,6 +218,7 @@
           <EntitySetMapping Name="WC_Inbox">
             <EntityTypeMapping TypeName="Human_ResourcesModel.WC_Inbox">
               <MappingFragment StoreEntitySet="WC_Inbox">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
                 <ScalarProperty Name="HR_User" ColumnName="HR_User" />
                 <ScalarProperty Name="HR_Comments" ColumnName="HR_Comments" />

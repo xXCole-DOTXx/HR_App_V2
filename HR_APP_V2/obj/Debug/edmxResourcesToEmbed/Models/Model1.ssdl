@@ -64,6 +64,7 @@
     <Property Name="Lost_Time_End2" Type="date" />
     <Property Name="Lost_Time_Start3" Type="date" />
     <Property Name="Lost_Time_End3" Type="date" />
+    <Property Name="Status" Type="nvarchar" MaxLength="25" />
     <Property Name="HR_Comments" Type="nvarchar" MaxLength="250" />
     <Property Name="Add_User" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Date_Added" Type="date" Nullable="false" />

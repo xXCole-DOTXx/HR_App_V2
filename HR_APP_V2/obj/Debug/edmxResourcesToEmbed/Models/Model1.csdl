@@ -71,6 +71,7 @@
     <Property Name="HR_Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="HR_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Date_Modified" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_WC_Inbox_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
