@@ -200,6 +200,8 @@ namespace HR_APP_V2.Controllers
         {
             if (ModelState.IsValid)
             {
+                wC_Inbox.HR_User = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                wC_Inbox.Date_Modified = DateTime.Today;
                 db.Entry(wC_Inbox).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
