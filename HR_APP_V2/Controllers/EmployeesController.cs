@@ -38,7 +38,8 @@ namespace HR_APP_V2.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 employees = employees.Where(s => s.Last_Name.Contains(searchString)
-                                       || s.First_Name.Contains(searchString));
+                                       || s.First_Name.Contains(searchString)
+                                       || s.SSN.ToString().Contains(searchString));
             }
 
             switch (sortOrder)

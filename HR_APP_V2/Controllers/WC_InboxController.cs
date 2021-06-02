@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using HR_APP_V2.Models;
@@ -16,8 +17,21 @@ namespace HR_APP_V2.Controllers
         private Human_ResourcesEntities1 db = new Human_ResourcesEntities1();
 
         // GET: WC_Inbox
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page)
         {
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var wC_Inbox = db.WC_Inbox.Include(w => w.Employee);
 
             if (!String.IsNullOrEmpty(searchString))
@@ -28,15 +42,53 @@ namespace HR_APP_V2.Controllers
                                        || s.Employee.Last_Name.Contains(searchString));
             }
 
-            return View(wC_Inbox.ToList());
+            switch (sortOrder)
+            {
+                case "id_desc":
+                    wC_Inbox = wC_Inbox.OrderByDescending(s => s.ID);
+                    break;
+                default:
+                    wC_Inbox = wC_Inbox.OrderBy(s => s.ID);
+                    break;
+            }
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(wC_Inbox.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: WC_Inbox
-        public ActionResult Archive()
+        public ActionResult Archive(string searchString, string sortOrder, string currentFilter, int? page)
         {
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var wC_Inbox = db.WC_Inbox.Include(w => w.Employee);
             wC_Inbox = wC_Inbox.Where(s => s.Status == "Archived");
-            return View(wC_Inbox.ToList());
+
+            switch (sortOrder)
+            {
+                case "id_desc":
+                    wC_Inbox = wC_Inbox.OrderByDescending(s => s.ID);
+                    break;
+                default:
+                    wC_Inbox = wC_Inbox.OrderBy(s => s.ID);
+                    break;
+            }
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(wC_Inbox.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Employees
@@ -54,13 +106,16 @@ namespace HR_APP_V2.Controllers
                 searchString = currentFilter;
             }
 
+            ViewBag.CurrentFilter = searchString;
+
             var employees = from s in db.Employees
                             select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 employees = employees.Where(s => s.Last_Name.Contains(searchString)
-                                       || s.First_Name.Contains(searchString));
+                                       || s.First_Name.Contains(searchString)
+                                       || s.SSN.ToString().Contains(searchString));
             }
 
             switch (sortOrder)

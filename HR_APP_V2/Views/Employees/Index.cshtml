@@ -11,7 +11,7 @@
 @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
 {
     <p>
-        Find by first or last name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        Find by first or last name or SSN: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search" />
     </p>
 }

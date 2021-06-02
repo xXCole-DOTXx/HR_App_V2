@@ -1,21 +1,23 @@
-﻿@model IEnumerable<HR_APP_V2.Models.WC_Inbox>
+﻿@model PagedList.IPagedList<HR_APP_V2.Models.WC_Inbox>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>WC Inbox Workflow</h2>
+<h2 style="text-align: center">WC Inbox Workflow</h2>
 
-<p>
+<p style="text-align: center">
     @Html.ActionLink("Create New", "EmployeeSelect")
 </p>
 
 @using (Html.BeginForm())
 {
-    <p>
-        Search: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
+<p style="text-align: center">
+    Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+    <input type="submit" value="Search" />
+</p>
 }
 
 @foreach (var item in Model)
@@ -131,3 +133,9 @@
     @Html.ActionLink("Return to full list", "Index")
 </p>
 
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter }))

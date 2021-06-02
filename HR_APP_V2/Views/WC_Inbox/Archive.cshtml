@@ -1,10 +1,19 @@
-﻿@model IEnumerable<HR_APP_V2.Models.WC_Inbox>
-
+﻿@model PagedList.IPagedList<HR_APP_V2.Models.WC_Inbox>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Archive";
 }
 
-<h2>Archive</h2>
+<h2 style="text-align: center">Archive</h2>
+
+@using (Html.BeginForm())
+{
+    <p style="text-align: center">
+        Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
 
 
 @foreach (var item in Model)
@@ -76,7 +85,7 @@
             <div class="row"></div>
             <div class="row">
                 <div class="col-md-4">
-            
+
                 </div>
 
                 <div class="col-md-4">
@@ -115,3 +124,9 @@
 
 }
 
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Archive",
+    new { page, currentFilter = ViewBag.CurrentFilter }))
