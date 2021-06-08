@@ -2,6 +2,7 @@
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -14,30 +15,33 @@
 
 @using (Html.BeginForm())
 {
-<p style="text-align: center">
-    Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-    <input type="submit" value="Search" />
-</p>
+    <p style="text-align: center">
+        Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
 }
 
 @foreach (var item in Model)
 {
+    <!--                Cards              -->
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-4" style="
+        overflow: hidden;
         margin: 10px;
         display: block;
         margin-left: auto;
         margin-right: auto;
         border-radius: 25px;
-        border: 2px solid #000000;
-        background: #c7c0c0;
-        padding: 10px;
+        border: 1px solid #000000;
+        background: #f2f2f2;
         width: 50%;
         height: 300px;
     ">
-            <h2>@Html.DisplayFor(modelItem => item.ID)</h2>
-
+            <div class="row" style="background-color: #bfbfbf">
+                <h2 style="text-align: center;">@Html.DisplayFor(modelItem => item.ID)</h2>
+            </div>
+            <br />
             <div class="row">
 
                 <div class="col-md-4">
@@ -102,7 +106,9 @@
 
                 <div class="col-md-4">
                     <p>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        <a href="@Url.Action("Delete", "WC_Inbox", new { id = item.ID })" title="Delete" class="links">
+                            <img alt="Delete" src="@Url.Content("~/Images/smallTrash.png")">
+                        </a>
                     </p>
                 </div>
             </div>

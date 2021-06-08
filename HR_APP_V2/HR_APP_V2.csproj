@@ -173,6 +173,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\details.png" />
+    <Content Include="Images\dohlogo.png" />
+    <Content Include="Images\dotlogo.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\smallTrash.png" />
     <Content Include="Images\transportation.png" />
     <Content Include="Images\WVDOT.png" />
     <Content Include="Models\Model1.Context.tt">
@@ -205,6 +211,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Styles\WorkIndex.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

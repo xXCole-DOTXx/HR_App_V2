@@ -1,0 +1,32 @@
+﻿/* ---------------------------------------- ALL ---------------------------------------- */
+
+
+
+/* ---------------------------------------- INDEX ---------------------------------------- */
+
+/* CARD */
+
+.card-border {
+    border: 1px solid #000000;
+    border-radius: 2rem;
+    width: 40%;
+}
+
+.num-align {
+    text-align: center;
+    margin-left: 6rem;
+}
+
+.det-icon {
+    width: 2rem;
+}
+
+.top-bg {
+    background-color: #808080;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.white-text {
+    color: #ffffff;
+}
