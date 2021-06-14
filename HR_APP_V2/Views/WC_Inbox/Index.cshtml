@@ -37,9 +37,17 @@
                             ...
                         </h1>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="@Url.Action("Edit", "WC_Inbox", new { id = item.ID })"><img src="~/Images/edit.png" class="det-icon"> Edit</a>
-                            <a class="dropdown-item" href="@Url.Action("Details", "WC_Inbox", new { id = item.ID })"><img src="~/Images/details.png" class="det-icon"> Details</a>
-                            <a class="dropdown-item" href="@Url.Action("Delete", "WC_Inbox", new { id = item.ID })"><img src="~/Images/delete.png" class="det-icon"> Delete</a>
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Edit", "WC_Inbox", new { id = item.ID })"><img src="~/Images/edit.png" class="det-icon"> Edit</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Details", "WC_Inbox", new { id = item.ID })"><img src="~/Images/details.png" class="det-icon"> Details</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Delete", "WC_Inbox", new { id = item.ID })"><img src="~/Images/delete.png" class="det-icon"> Delete</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -92,29 +100,7 @@
                     </p>
                 </div>
 
-                <!--Options row-->
                 <div class="row"></div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                        </p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <p>
-                            @Html.ActionLink("Details", "Details", new { id = item.ID })
-                        </p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <p>
-                            <a href="@Url.Action("Delete", "WC_Inbox", new { id = item.ID })" title="Delete" class="links">
-                                <img alt="Delete" src="@Url.Content("~/Images/smallTrash.png")">
-                            </a>
-                        </p>
-                    </div>
-                </div>
 
                 <br />
 
@@ -127,7 +113,7 @@
 
                     <div class="col-md-4">
                         <p>
-                            @Html.ActionLink("Work", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
+                            @Html.ActionLink("Review", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
                         </p>
                     </div>
                 </div>
