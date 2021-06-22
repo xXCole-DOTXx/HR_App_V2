@@ -196,6 +196,7 @@ namespace HR_APP_V2.Controllers
                 wC_Inbox.Date_Added = DateTime.Today;
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
+                SendEmailIQ();
                 return RedirectToAction("Index");
             }
 
@@ -317,5 +318,21 @@ namespace HR_APP_V2.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public void SendEmailIQ() //send email to the applicable district
+        {
+            string dEmail = "Cole.K.Perry@wv.gov"; //Recipient 
+            MailMessage mail = new MailMessage("DOHRoadwayHistorySrv@wv.gov", dEmail);
+            mail.IsBodyHtml = true;
+            mail.Subject = "New WC Inbox item";
+            mail.Body = "What up?";
+            SmtpClient client = new SmtpClient("smtp.office365.com");
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
+            NetworkCredential cred = new System.Net.NetworkCredential("DOHRoadwayHistorySrv@wv.gov", "5FZScjR/"); client.Credentials = cred;
+            client.Send(mail);
+        }
+
     }
 }
