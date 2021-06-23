@@ -186,7 +186,7 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,InboxID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Status,Add_User,Date_Added")] WC_Inbox wC_Inbox)
+        public ActionResult Create([Bind(Include = "ID,InboxID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Status,Add_User,Date_Added")] WC_Inbox wC_Inbox, string fullName)
         {
             if (ModelState.IsValid)
             {
@@ -196,7 +196,7 @@ namespace HR_APP_V2.Controllers
                 wC_Inbox.Date_Added = DateTime.Today;
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
-                SendEmailIQ();
+                SendEmailIQ(fullName, userName);
                 return RedirectToAction("Index");
             }
 
@@ -319,13 +319,13 @@ namespace HR_APP_V2.Controllers
             base.Dispose(disposing);
         }
 
-        public void SendEmailIQ() //send email to the applicable district
+        public void SendEmailIQ(string name, string userName) //send email to the applicable district
         {
             string dEmail = "Cole.K.Perry@wv.gov"; //Recipient 
             MailMessage mail = new MailMessage("DOHRoadwayHistorySrv@wv.gov", dEmail);
             mail.IsBodyHtml = true;
-            mail.Subject = "New WC Inbox item";
-            mail.Body = "What up?";
+            mail.Subject = "New WC Inbox form";
+            mail.Body = "A new WC Inbox form has been added for " + name + " by " + userName + " on " + DateTime.Today;
             SmtpClient client = new SmtpClient("smtp.office365.com");
             client.Port = 587;
             client.EnableSsl = true;
