@@ -1,0 +1,136 @@
+﻿@model PagedList.IPagedList<HR_APP_V2.Models.WC_Inbox>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Styles/WorkflowStyles.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align: center">WC Inbox Workflow</h2>
+
+<p style="text-align: center">
+    @Html.ActionLink("Create New", "EmployeeSelect")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p style="text-align: center">
+        Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+@foreach (var item in Model)
+{
+    <!--                Cards              -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-4 workCards">
+            <div class="row top-bg">
+                <div class="col-md-11">
+                    <h2 style="text-align: center;">@Html.DisplayFor(modelItem => item.ID)</h2>
+                </div>
+                <div class="col-md-1">
+                    <div class="dropdown text-right">
+                        <h1 class="text-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ...
+                        </h1>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Edit", "WC_Inbox", new { id = item.ID })"><img src="~/Images/edit.png" class="det-icon"> Edit</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Details", "WC_Inbox", new { id = item.ID })"><img src="~/Images/details.png" class="det-icon"> Details</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Delete", "WC_Inbox", new { id = item.ID })"><img src="~/Images/delete.png" class="det-icon"> Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br />
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <b>Employee Name:</b>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Employee.First_Name)  @Html.DisplayFor(modelItem => item.Employee.Last_Name)
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <b>Encova ID:</b>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.EncovaID)
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <b>Injury Date:</b>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Injury_Date)
+                        </p>
+                    </div>
+                    <!--End row 1-->
+                </div>
+
+                <div class="col-md-4">
+                    <b>Organization Number:</b>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Org_Number)
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <b>Injury Type:</b>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Injury_Type)
+                    </p>
+                </div>
+
+
+                <div class="col-md-4">
+                    <b>Status:</b>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </p>
+                </div>
+
+                <div class="row"></div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+
+                    <div class="col-md-4"></div>
+
+                    <div class="col-md-4">
+                        <p>
+                            @Html.ActionLink("Review", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+}
+
+<p>
+    @Html.ActionLink("Return to full list", "Index")
+</p>
+
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter }))

@@ -84,4 +84,4 @@ C:\Users\e096752\Documents\Cole's Git Repos\HR_APP_V2\HR_APP_V2\bin\PagedList.dl
 C:\Users\e096752\Documents\Cole's Git Repos\HR_APP_V2\HR_APP_V2\bin\PagedList.Mvc.dll
 C:\Users\e096752\Documents\Cole's Git Repos\HR_APP_V2\HR_APP_V2\bin\PagedList.xml
 C:\Users\e096752\Documents\Cole's Git Repos\HR_APP_V2\HR_APP_V2\bin\PagedList.Mvc.xml
-C:\Users\e096752\Documents\Cole's Git Repos\HR_APP_V2\HR_APP_V2\obj\Debug\HR_APP_V2.csprojAssemblyReference.cache
+C:\Users\e096752\Documents\Cole's Git Repos\HR_APP_V2\HR_APP_V2\obj\Debug\HR_APP_V2.csproj.AssemblyReference.cache

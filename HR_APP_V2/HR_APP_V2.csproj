@@ -200,6 +200,8 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -238,6 +240,7 @@
     <Content Include="Views\WC_Inbox\Details.cshtml" />
     <Content Include="Views\WC_Inbox\Work.cshtml" />
     <Content Include="Views\WC_Inbox\Archive.cshtml" />
+    <Content Include="Views\Employees\Create1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

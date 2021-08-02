@@ -1,0 +1,33 @@
+﻿a{
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.det-icon {
+    width: 2rem;
+}
+
+.workCards {
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    border: 1px solid #000000;
+    background: #f2f2f2;
+    width: 50%;
+    height: 300px;
+}
+
+.top-bg {
+    background-color: #bfbfbf;
+    border-radius: 25px 25px 0 0;
+}
+
+.text-right {
+    cursor: pointer
+}

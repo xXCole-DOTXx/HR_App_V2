@@ -1,0 +1,132 @@
+﻿@model PagedList.IPagedList<HR_APP_V2.Models.WC_Inbox>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Archive";
+}
+
+<h2 style="text-align: center">Archive</h2>
+
+@using (Html.BeginForm())
+{
+    <p style="text-align: center">
+        Search: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-4" style="
+        margin: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+        border: 2px solid #000000;
+        background: #FFFFFF;
+        padding: 10px;
+        width: 50%;
+        height: 300px;
+    ">
+            <h2>@Html.DisplayFor(modelItem => item.ID)</h2>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <b>Employee First Name:</b>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Employee.First_Name)
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <b>Employee Last Name:</b>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Employee.Last_Name)
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <b>Injury Date:</b>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Injury_Date)
+                    </p>
+                </div>
+                <!--End row 1-->
+            </div>
+
+            <div class="col-md-4">
+                <b>Organization Number:</b>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Org_Number)
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <b>Title:</b>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Job_Title)
+                </p>
+            </div>
+
+
+            <div class="col-md-4">
+                <b>Status:</b>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </p>
+            </div>
+
+            <!--Options row-->
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+
+                <div class="col-md-4">
+                    <p>
+                        @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+
+                <div class="col-md-4"></div>
+
+                <div class="col-md-4">
+                    <p>
+                        @Html.ActionLink("Reopen", "Work", new { id = item.ID }, new { @class = "btn btn-primary btn-large" })
+                    </p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+}
+
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Archive",
+    new { page, currentFilter = ViewBag.CurrentFilter }))

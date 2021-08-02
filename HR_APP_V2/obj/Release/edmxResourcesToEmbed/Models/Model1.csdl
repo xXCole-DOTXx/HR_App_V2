@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Human_ResourcesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Marital_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SSN" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_Number" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Added" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="WC_Inbox" Relationship="Self.FK_WC_Inbox_Employee" FromRole="Employee" ToRole="WC_Inbox" />
+  </EntityType>
+  <EntityType Name="WC_Inbox">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="Org_Number" Type="Int32" Nullable="false" />
+    <Property Name="Hire_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Work_Schedule" Type="Int32" Nullable="false" />
+    <Property Name="Injury_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Injury_Time" Type="String" MaxLength="10" Nullable="false" Unicode="true" FixedLength="false" />
+    <Property Name="DOT_12" Type="Boolean" Nullable="false" />
+    <Property Name="Start_Time" Type="String" MaxLength="10" Nullable="false" Unicode="true" FixedLength="false" />
+    <Property Name="Injured_Body_Part" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Side" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Missing_Work" Type="Boolean" Nullable="false" />
+    <Property Name="Return_to_Work_Date" Type="DateTime" Precision="0" />
+    <Property Name="Doctors_Release" Type="Boolean" />
+    <Property Name="Treatment" Type="Boolean" />
+    <Property Name="Injury_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Equipment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Witness" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Questioned" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Medical_History" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Inbox_Submitted" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="User_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contact_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Specialist_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Optional_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="Optional_Email2" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="Optional_Email3" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="Optional_Email4" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_WC_Inbox_Employee" FromRole="WC_Inbox" ToRole="Employee" />
+    <Property Name="EncovaID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TX_EROI_lag" Type="DateTime" Precision="0" />
+    <Property Name="Claim_Ruling" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Injury_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TTD_Onset_Date" Type="DateTime" Precision="0" />
+    <Property Name="Restricted_RTW" Type="DateTime" Precision="0" />
+    <Property Name="Full_Duty_RTW" Type="DateTime" Precision="0" />
+    <Property Name="TTD_Award_notice" Type="DateTime" Precision="0" />
+    <Property Name="RTW_Notice_Carrier" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_Start1" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_End1" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_Start2" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_End2" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_Start3" Type="DateTime" Precision="0" />
+    <Property Name="Lost_Time_End3" Type="DateTime" Precision="0" />
+    <Property Name="HR_Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HR_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Modified" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_WC_Inbox_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="WC_Inbox" Type="Self.WC_Inbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WC_Inbox">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Human_ResourcesEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="WC_Inbox" EntityType="Self.WC_Inbox" />
+    <AssociationSet Name="FK_WC_Inbox_Employee" Association="Self.FK_WC_Inbox_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="WC_Inbox" EntitySet="WC_Inbox" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

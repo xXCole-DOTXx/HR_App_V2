@@ -190,13 +190,11 @@ namespace HR_APP_V2.Controllers
         {
             if (ModelState.IsValid)
             {
-                //Get logged in windows user, get the date right now, and create the wcInbox unique ID
-                var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                wC_Inbox.Add_User = userName;
+                wC_Inbox.Add_User = User.Identity.Name;
                 wC_Inbox.Date_Added = DateTime.Today;
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
-                SendEmailIQ(fullName, userName);
+                SendEmailIQ(fullName, User.Identity.Name);
                 return RedirectToAction("Index");
             }
 

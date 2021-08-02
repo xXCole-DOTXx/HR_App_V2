@@ -1,0 +1,386 @@
+﻿@model HR_APP_V2.Models.WC_Inbox
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.Name WC Inbox Form Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.First_Name)
+        </dd>
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Last_Name)
+        </dd>
+        <dt>
+            Org Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Org_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hire_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hire_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Job_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work_Schedule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work_Schedule)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Injury_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Injury_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Injury_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Injury_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOT_12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOT_12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Injured_Body_Part)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Injured_Body_Part)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Side)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Side)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Missing_Work)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Missing_Work)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Return_to_Work_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Return_to_Work_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctors_Release)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctors_Release)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Treatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Treatment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Injury_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Injury_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Equipment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Equipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Witness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Witness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Questioned)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Questioned)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medical_History)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medical_History)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inbox_Submitted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inbox_Submitted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialist_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialist_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Optional_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Optional_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Optional_Email2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Optional_Email2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Optional_Email3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Optional_Email3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Optional_Email4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Optional_Email4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Add_User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Add_User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Added)
+        </dd>
+
+        <h2 style="text-align: center;">For HR staff use only</h2>
+        <hr style="border:0px;border-top:1px solid grey;width:75%;" />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EncovaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EncovaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TX_EROI_lag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TX_EROI_lag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Claim_Ruling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Claim_Ruling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Injury_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Injury_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TTD_Onset_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TTD_Onset_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restricted_RTW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restricted_RTW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Full_Duty_RTW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Full_Duty_RTW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TTD_Award_notice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TTD_Award_notice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTW_Notice_Carrier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTW_Notice_Carrier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lost_Time_Start1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lost_Time_End1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lost_Time_Start2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lost_Time_End2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lost_Time_Start3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lost_Time_End3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HR_Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HR_Comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
