@@ -240,7 +240,6 @@
     <Content Include="Views\WC_Inbox\Details.cshtml" />
     <Content Include="Views\WC_Inbox\Work.cshtml" />
     <Content Include="Views\WC_Inbox\Archive.cshtml" />
-    <Content Include="Views\Employees\Create1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
