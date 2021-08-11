@@ -81,7 +81,7 @@ namespace HR_APP_V2.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new Employee());
         }
 
         // POST: Employees/Create
