@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -196,8 +198,11 @@ namespace HR_APP_V2.Controllers
                 wC_Inbox.Date_Added = DateTime.Now;
                 db.WC_Inbox.Add(wC_Inbox);
                 db.SaveChanges();
-                //SendEmailIQ(fullName, User.Identity.Name);
-                SendEmail(wC_Inbox.Org_Number);
+                string[] recipients = { "E096752@wv.gov" };
+                for (int i = 0; i < recipients.Length; i++)
+                {
+                    SendEmail(wC_Inbox.Org_Number, wC_Inbox.District, recipients[i]);
+                }
                 return RedirectToAction("Index");
             }
 
@@ -220,9 +225,10 @@ namespace HR_APP_V2.Controllers
 
             Employee employee = db.Employees.Find(wC_Inbox.EmployeeID);
             string fullName = employee.First_Name + " " + employee.Last_Name;
-            System.Diagnostics.Debug.WriteLine("Employee full name: " + fullName);
+            string addUser = wC_Inbox.Add_User;
             ViewBag.EmployeeID = id;
             ViewBag.Name = fullName;
+            ViewBag.Add_User = addUser;
 
             return View(wC_Inbox);
         }
@@ -232,12 +238,30 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,InboxID,EmployeeID,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Add_User,Date_Added")] WC_Inbox wC_Inbox)
+        public ActionResult Edit([Bind(Include = "ID,InboxID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4, Add_User")] WC_Inbox wC_Inbox)
         {
             if (ModelState.IsValid)
             {
+
+                
                 db.Entry(wC_Inbox).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var errors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in errors.ValidationErrors)
+                        {
+                            // get the error message 
+                            string errorMessage = validationError.ErrorMessage;
+                            System.Diagnostics.Debug.WriteLine(errorMessage);
+
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.EmployeeID = new SelectList(db.Employees, "ID", "First_Name", wC_Inbox.EmployeeID);
@@ -259,9 +283,12 @@ namespace HR_APP_V2.Controllers
 
             Employee employee = db.Employees.Find(wC_Inbox.EmployeeID);
             string fullName = employee.First_Name + " " + employee.Last_Name;
-            System.Diagnostics.Debug.WriteLine("Employee full name: " + fullName);
             ViewBag.EmployeeID = id;
             ViewBag.Name = fullName;
+            var user = wC_Inbox.Add_User;
+            var addDate = wC_Inbox.Date_Added;
+            ViewBag.user = user;
+            ViewBag.date = addDate;
 
             return View(wC_Inbox);
         }
@@ -271,14 +298,27 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Work([Bind(Include = "ID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,TX_EROI_lag,Claim_Ruling,Injury_Type,TTD_Onset_Date,Restricted_RTW,Full_Duty_RTW,TTD_Award_notice,RTW_Notice_Carrier,Lost_Time_Start1,Lost_Time_End1,Lost_Time_Start2,Lost_Time_End2,Lost_Time_Start3,Lost_Time_End3,Status,HR_Comments,EncovaID,HR_User,Date_Modified")] WC_Inbox wC_Inbox)
+        public ActionResult Work([Bind(Include = "ID,EncovaID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,TX_EROI_lag,Claim_Ruling,Injury_Type,TTD_Onset_Date,Restricted_RTW,Full_Duty_RTW,TTD_Award_notice,RTW_Notice_Carrier,Lost_Time_Start1,Lost_Time_End1,Lost_Time_Start2,Lost_Time_End2,Lost_Time_Start3,Lost_Time_End3,Status,HR_Comments,Add_User,Date_Added,HR_User,Date_Modified")] WC_Inbox wC_Inbox)
         {
             if (ModelState.IsValid)
             {
                 wC_Inbox.HR_User = User.Identity.Name;
                 wC_Inbox.Date_Modified = DateTime.Now;
                 db.Entry(wC_Inbox).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.EmployeeID = new SelectList(db.Employees, "ID", "First_Name", wC_Inbox.EmployeeID);
@@ -320,27 +360,11 @@ namespace HR_APP_V2.Controllers
             base.Dispose(disposing);
         }
 
-        public void SendEmailIQ(string name, string userName) //send email to the applicable district
-        {
-            string dEmail = "Cole.K.Perry@wv.gov"; //Recipient 
-            MailMessage mail = new MailMessage("DOHRoadwayHistorySrv@wv.gov", dEmail);
-            mail.IsBodyHtml = true;
-            mail.Subject = "New WC Inbox form";
-            mail.Body = "A new WC Inbox form has been added for " + name + " by " + userName + " on " + DateTime.Today;
-            SmtpClient client = new SmtpClient("relay.wv.gov");
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
-            NetworkCredential cred = new System.Net.NetworkCredential("DOHRoadwayHistorySrv@wv.gov", "5FZScjR/"); client.Credentials = cred;
-            client.Send(mail);
-        }
-
-        public void SendEmail(int? orgNum)
+        public void SendEmail(int? orgNum, int? district, string recipient) 
         {
             //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
-            string emailText = "<html><body><div><br>A new workers comp form has been created for an employee in org " + orgNum + ".</ div ></ body ></ html >";
-            string dEmail = "E096752@wv.gov"; //Recipient 
-            MailMessage myMail = new MailMessage("DOHRoadwayHistorySrv@wv.gov", dEmail);
+            string emailText = "<html><body><div><br>A new workers comp form has been created for an employee in district " + district +  " org " + orgNum + ".</ div ></ body ></ html >";
+            MailMessage myMail = new MailMessage("DOHRoadwayHistorySrv@wv.gov", recipient);
             myMail.IsBodyHtml = true;
             myMail.Subject = "New WC Inbox Form";
             myMail.Body = emailText;

@@ -29,7 +29,7 @@
         <div class="col-md-4 workCards">
             <div class="row top-bg">
                 <div class="col-md-11">
-                    <h2 style="text-align: center;">@Html.DisplayFor(modelItem => item.ID)</h2>
+                    <h2 style="text-align: center; margin-left: 30px">@Html.DisplayFor(modelItem => item.ID)</h2>
                 </div>
                 <div class="col-md-1">
                     <div class="dropdown text-right">
@@ -78,14 +78,14 @@
                     <!--End row 1-->
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left: -15px">
                     <b>Organization Number:</b>
                     <p>
                         @Html.DisplayFor(modelItem => item.Org_Number)
                     </p>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left: 10px">
                     <b>Injury Type:</b>
                     <p>
                         @Html.DisplayFor(modelItem => item.Injury_Type)
@@ -93,7 +93,7 @@
                 </div>
 
 
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left: 5px">
                     <b>Status:</b>
                     <p>
                         @Html.DisplayFor(modelItem => item.Status)

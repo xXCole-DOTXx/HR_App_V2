@@ -79,8 +79,9 @@ namespace HR_APP_V2.Controllers
         }
 
         // GET: Employees/Create
-        public ActionResult Create()
+        public ActionResult Create(int? from)
         {
+            ViewBag.from = from;
             return View(new Employee());
         }
 
@@ -89,13 +90,23 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,First_Name,Last_Name,Gender,Marital_Status,SSN,Address,Phone_Number,Add_User,Date_Added")] Employee employee)
+        public ActionResult Create([Bind(Include = "ID,First_Name,Last_Name,Gender,Marital_Status,SSN,Address,Phone_Number,Add_User,Date_Added")] Employee employee, int? from)
         {
             if (ModelState.IsValid)
             {
+                employee.Add_User = User.Identity.Name;
+                employee.Date_Added = DateTime.Now;
                 db.Employees.Add(employee);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if (from == 1)
+                {
+                    int lastAddedID = db.Employees.Max(item => item.ID);
+                    return RedirectToAction("Create", "WC_Inbox", new { id = lastAddedID });
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(employee);

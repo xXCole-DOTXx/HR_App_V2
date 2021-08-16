@@ -15,20 +15,25 @@
     <h4>Employee</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.Hidden("from", (object)ViewBag.from)
+
     <div class="form-group">
         @Html.LabelFor(model => model.First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        <div class="col-md-4">
             @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "John" } })
             @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
         </div>
+        <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        <div class="col-md-4">
             @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Doe" } })
             @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
         </div>
+        <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
     </div>
 
     <div class="form-group">

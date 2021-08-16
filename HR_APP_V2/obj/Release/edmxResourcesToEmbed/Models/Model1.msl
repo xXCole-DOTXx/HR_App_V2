@@ -41,6 +41,7 @@
           <ScalarProperty Name="EncovaID" ColumnName="EncovaID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="District" ColumnName="District" />
           <ScalarProperty Name="Org_Number" ColumnName="Org_Number" />
           <ScalarProperty Name="Hire_Date" ColumnName="Hire_Date" />
           <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
