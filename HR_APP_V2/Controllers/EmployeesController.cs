@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using HR_APP_V2.Models;
@@ -96,8 +98,26 @@ namespace HR_APP_V2.Controllers
             {
                 employee.Add_User = User.Identity.Name;
                 employee.Date_Added = DateTime.Now;
-                db.Employees.Add(employee);
-                db.SaveChanges();
+                try
+                {
+                    db.Employees.Add(employee);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    var err = new StringBuilder();
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            err.AppendLine(validationError.ErrorMessage);
+                            System.Diagnostics.Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            System.Diagnostics.Debug.WriteLine("err: " + err);
+                            return RedirectToAction("ErrorMessage", new { message = err.ToString() } );
+                        }
+                    }
+                }
                 if (from == 1)
                 {
                     int lastAddedID = db.Employees.Max(item => item.ID);
@@ -169,6 +189,13 @@ namespace HR_APP_V2.Controllers
             db.Employees.Remove(employee);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ErrorMessage(string message)
+        {
+            ViewBag.ErrorMessage = message;
+            System.Diagnostics.Debug.WriteLine("Error message: " + message);
+            return View();
         }
 
         protected override void Dispose(bool disposing)

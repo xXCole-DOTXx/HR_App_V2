@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using HR_APP_V2.Models;
@@ -196,9 +197,27 @@ namespace HR_APP_V2.Controllers
             {
                 wC_Inbox.Add_User = User.Identity.Name;
                 wC_Inbox.Date_Added = DateTime.Now;
-                db.WC_Inbox.Add(wC_Inbox);
-                db.SaveChanges();
-                string[] recipients = { "E096752@wv.gov" };
+                try
+                {
+                    db.WC_Inbox.Add(wC_Inbox);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    var err = new StringBuilder();
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            err.AppendLine(validationError.ErrorMessage);
+                            System.Diagnostics.Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            System.Diagnostics.Debug.WriteLine("err: " + err);
+                            return RedirectToAction("ErrorMessage", new { message = err.ToString() });
+                        }
+                    }
+                }
+                string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
                 for (int i = 0; i < recipients.Length; i++)
                 {
                     SendEmail(wC_Inbox.Org_Number, wC_Inbox.District, recipients[i]);
@@ -374,6 +393,13 @@ namespace HR_APP_V2.Controllers
             client1.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
             NetworkCredential cred1 = new System.Net.NetworkCredential("DOTHumanResourcesSrv@wv.gov", "wnC6W6?C"); client1.Credentials = cred1;
             client1.Send(myMail);
+        }
+
+        public ActionResult ErrorMessage(string message)
+        {
+            ViewBag.ErrorMessage = message;
+            System.Diagnostics.Debug.WriteLine("Error message: " + message);
+            return View();
         }
 
     }
