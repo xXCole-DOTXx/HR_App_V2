@@ -16,12 +16,12 @@ namespace HR_APP_V2.Models
     {
         public long ID { get; set; }
         public int EmployeeID { get; set; }
-        public int? District { get; set; }
-        public int? Org_Number { get; set; }
-        public System.DateTime? Hire_Date { get; set; }
+        public int District { get; set; }
+        public int Org_Number { get; set; }
+        public System.DateTime Hire_Date { get; set; }
         public string Job_Title { get; set; }
-        public int? Work_Schedule { get; set; }
-        public System.DateTime? Injury_Date { get; set; }
+        public int Work_Schedule { get; set; }
+        public System.DateTime Injury_Date { get; set; }
         public string Injury_Time { get; set; }
         public bool DOT_12 { get; set; }
         public string Start_Time { get; set; }

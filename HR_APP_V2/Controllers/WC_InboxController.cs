@@ -183,6 +183,7 @@ namespace HR_APP_V2.Controllers
             ViewBag.EmployeeID = id;
             ViewBag.Name = fullName;
             ViewBag.Status = "Pending";
+            ViewBag.Now = DateTime.Today;
             return View(new WC_Inbox());
         }
 
@@ -365,8 +366,26 @@ namespace HR_APP_V2.Controllers
         public ActionResult DeleteConfirmed(long id)
         {
             WC_Inbox wC_Inbox = db.WC_Inbox.Find(id);
-            db.WC_Inbox.Remove(wC_Inbox);
-            db.SaveChanges();
+            try
+            {
+                db.WC_Inbox.Remove(wC_Inbox);
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                var err = new StringBuilder();
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        err.AppendLine(validationError.ErrorMessage);
+                        System.Diagnostics.Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        System.Diagnostics.Debug.WriteLine("err: " + err);
+                        return RedirectToAction("ErrorMessage", new { message = err.ToString() });
+                    }
+                }
+            }
             return RedirectToAction("Index");
         }
 

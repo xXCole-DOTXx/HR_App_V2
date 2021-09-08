@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>\\dotb6dwtest01v\humanresourcesapp</_PublishTargetUrl>
-    <History>True|2021-08-25T16:14:04.6369534Z;True|2021-08-25T11:01:10.3885562-04:00;True|2021-08-25T10:51:51.3722760-04:00;True|2021-08-25T09:58:27.6980590-04:00;True|2021-08-16T13:58:34.0569934-04:00;True|2021-08-16T13:48:39.4244096-04:00;True|2021-08-16T13:19:04.1700314-04:00;True|2021-08-16T11:23:48.9412040-04:00;True|2021-08-16T11:22:06.0228229-04:00;True|2021-08-16T11:05:23.0284348-04:00;True|2021-08-16T10:24:20.9085486-04:00;True|2021-08-16T10:19:49.1412274-04:00;True|2021-08-16T10:02:10.4992960-04:00;True|2021-08-16T09:55:36.8438805-04:00;True|2021-08-16T09:50:16.5804559-04:00;True|2021-08-16T09:48:40.0163615-04:00;True|2021-08-11T15:08:28.3951953-04:00;True|2021-08-11T15:06:18.4887619-04:00;True|2021-08-11T09:25:48.2528691-04:00;True|2021-08-05T15:15:31.5966163-04:00;True|2021-08-05T13:56:19.4670213-04:00;True|2021-08-03T13:34:21.8244535-04:00;True|2021-08-03T13:17:37.7242614-04:00;True|2021-08-03T11:46:04.9661550-04:00;True|2021-08-02T15:59:57.0582134-04:00;True|2021-08-02T15:54:21.3001494-04:00;True|2021-08-02T15:44:12.7657059-04:00;True|2021-07-29T13:48:32.9291688-04:00;False|2021-07-29T13:45:48.0544792-04:00;False|2021-06-24T15:14:40.5087298-04:00;False|2021-06-24T15:12:21.8957331-04:00;False|2021-06-24T15:11:52.5136925-04:00;False|2021-06-24T15:11:42.6409932-04:00;False|2021-06-24T15:11:12.2241610-04:00;False|2021-06-24T15:09:31.7417500-04:00;False|2021-06-24T15:09:09.6574328-04:00;</History>
+    <History>True|2021-09-08T20:10:47.5411854Z;True|2021-09-08T16:09:17.8660384-04:00;True|2021-09-08T16:08:40.3571711-04:00;True|2021-09-08T16:07:05.1307893-04:00;True|2021-09-08T16:04:47.5244231-04:00;True|2021-09-08T15:45:10.5806375-04:00;True|2021-09-08T15:31:44.4072126-04:00;True|2021-09-08T15:29:25.9831553-04:00;True|2021-09-08T12:19:54.6721616-04:00;True|2021-08-26T10:49:55.0740173-04:00;True|2021-08-26T09:44:23.7731974-04:00;True|2021-08-25T12:14:04.6369534-04:00;True|2021-08-25T11:01:10.3885562-04:00;True|2021-08-25T10:51:51.3722760-04:00;True|2021-08-25T09:58:27.6980590-04:00;True|2021-08-16T13:58:34.0569934-04:00;True|2021-08-16T13:48:39.4244096-04:00;True|2021-08-16T13:19:04.1700314-04:00;True|2021-08-16T11:23:48.9412040-04:00;True|2021-08-16T11:22:06.0228229-04:00;True|2021-08-16T11:05:23.0284348-04:00;True|2021-08-16T10:24:20.9085486-04:00;True|2021-08-16T10:19:49.1412274-04:00;True|2021-08-16T10:02:10.4992960-04:00;True|2021-08-16T09:55:36.8438805-04:00;True|2021-08-16T09:50:16.5804559-04:00;True|2021-08-16T09:48:40.0163615-04:00;True|2021-08-11T15:08:28.3951953-04:00;True|2021-08-11T15:06:18.4887619-04:00;True|2021-08-11T09:25:48.2528691-04:00;True|2021-08-05T15:15:31.5966163-04:00;True|2021-08-05T13:56:19.4670213-04:00;True|2021-08-03T13:34:21.8244535-04:00;True|2021-08-03T13:17:37.7242614-04:00;True|2021-08-03T11:46:04.9661550-04:00;True|2021-08-02T15:59:57.0582134-04:00;True|2021-08-02T15:54:21.3001494-04:00;True|2021-08-02T15:44:12.7657059-04:00;True|2021-07-29T13:48:32.9291688-04:00;False|2021-07-29T13:45:48.0544792-04:00;False|2021-06-24T15:14:40.5087298-04:00;False|2021-06-24T15:12:21.8957331-04:00;False|2021-06-24T15:11:52.5136925-04:00;False|2021-06-24T15:11:42.6409932-04:00;False|2021-06-24T15:11:12.2241610-04:00;False|2021-06-24T15:09:31.7417500-04:00;False|2021-06-24T15:09:09.6574328-04:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -21,10 +21,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/HR_APP_V2.dll">
-      <publishTime>08/25/2021 12:14:00</publishTime>
+      <publishTime>09/08/2021 16:10:45</publishTime>
     </File>
     <File Include="bin/HR_APP_V2.pdb">
-      <publishTime>08/25/2021 12:14:00</publishTime>
+      <publishTime>09/08/2021 16:10:45</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -242,6 +242,129 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Site.css">
       <publishTime>05/11/2021 11:19:02</publishTime>
     </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>09/08/2021 10:23:51</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>09/08/2021 10:23:51</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>09/08/2021 10:23:51</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>09/08/2021 10:23:51</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>09/08/2021 10:23:50</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_444444_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_555555_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_777620_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_777777_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cc0000_256x240.png">
+      <publishTime>09/08/2021 10:23:49</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_ffffff_256x240.png">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.min.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>09/08/2021 10:23:48</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>05/11/2021 11:19:02</publishTime>
     </File>
@@ -314,6 +437,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
       <publishTime>05/11/2021 11:19:08</publishTime>
     </File>
+    <File Include="Scripts/jquery-ui-1.12.1.js">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1.min.js">
+      <publishTime>09/08/2021 10:23:47</publishTime>
+    </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>05/11/2021 11:19:11</publishTime>
     </File>
@@ -341,6 +470,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Employees/Edit.cshtml">
       <publishTime>08/02/2021 14:41:35</publishTime>
     </File>
+    <File Include="Views/Employees/ErrorMessage.cshtml">
+      <publishTime>08/26/2021 09:39:09</publishTime>
+    </File>
     <File Include="Views/Employees/Index.cshtml">
       <publishTime>06/02/2021 10:36:26</publishTime>
     </File>
@@ -357,13 +489,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/11/2021 11:19:02</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/02/2021 11:11:06</publishTime>
+      <publishTime>09/08/2021 10:45:21</publishTime>
     </File>
     <File Include="Views/WC_Inbox/Archive.cshtml">
       <publishTime>08/16/2021 13:58:24</publishTime>
     </File>
     <File Include="Views/WC_Inbox/Create.cshtml">
-      <publishTime>08/11/2021 11:24:16</publishTime>
+      <publishTime>09/08/2021 16:10:30</publishTime>
     </File>
     <File Include="Views/WC_Inbox/Delete.cshtml">
       <publishTime>05/26/2021 12:01:09</publishTime>
@@ -376,6 +508,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Views/WC_Inbox/EmployeeSelect.cshtml">
       <publishTime>08/11/2021 09:25:37</publishTime>
+    </File>
+    <File Include="Views/WC_Inbox/ErrorMessage.cshtml">
+      <publishTime>08/26/2021 09:41:50</publishTime>
     </File>
     <File Include="Views/WC_Inbox/Index.cshtml">
       <publishTime>08/16/2021 11:04:53</publishTime>
@@ -390,7 +525,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/11/2021 11:19:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/02/2021 15:54:18</publishTime>
+      <publishTime>09/08/2021 12:19:51</publishTime>
     </File>
   </ItemGroup>
 </Project>

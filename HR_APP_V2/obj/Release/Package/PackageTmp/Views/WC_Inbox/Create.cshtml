@@ -23,11 +23,21 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.District, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-4">
-            @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form-control", placeholder = "4" } })
-            @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+        <div class="col-md-10">
+            @Html.DropDownList("District", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "District 1", Value="1"  },
+            new SelectListItem {Text = "District 2", Value="2"  },
+            new SelectListItem {Text = "District 3", Value="3"  },
+            new SelectListItem {Text = "District 4", Value="4"  },
+            new SelectListItem {Text = "District 5", Value="5"  },
+            new SelectListItem {Text = "District 6", Value="6"  },
+            new SelectListItem {Text = "District 7", Value="7"  },
+            new SelectListItem {Text = "District 8", Value="8"  },
+            new SelectListItem {Text = "District 9", Value="9"  },
+            new SelectListItem {Text = "District 10", Value="10"  }
+            }, new { @class = "form-control" })
         </div>
-        <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
     </div>
 
     <div class="form-group">
@@ -42,7 +52,18 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Hire_Date, "Hire Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @class = "form-control", placeholder = "8/3/2021" } })
+            @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @class = "datepicker" } })
+            <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+            <script src="~/Scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+            <script>
+                $(document).ready(function () {
+                    $(".datepicker").datepicker({
+                        dateFormat: "mm/dd/yy",
+                        changemonth: true,
+                        changeyear: true
+                    }).datepicker("setDate", new Date());
+                });
+            </script>
             @Html.ValidationMessageFor(model => model.Hire_Date, "", new { @class = "text-danger" })
         </div>
         <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
@@ -59,17 +80,39 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Work_Schedule, "Work Schedule", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-4">
-            @Html.EditorFor(model => model.Work_Schedule, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Work_Schedule, "", new { @class = "text-danger" })
+        <div class="col-md-10">
+            @Html.DropDownList("Work_Schedule", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "8 hours per day, 5 days per week", Value="8 hours per day, 5 days per week"  },
+            new SelectListItem {Text = "8.5 hours per day, 5 days per week", Value="8.5 hours per day, 5 days per week"  },
+            new SelectListItem {Text = "9 hours per day, 5 days per week", Value="9 hours per day, 5 days per week"  },
+            new SelectListItem {Text = "10 hours per day, 4 days per week", Value="10 hours per day, 4 days per week"  },
+            new SelectListItem {Text = "10 hours per day, 5 days per week", Value="10 hours per day, 5 days per week"  },
+            new SelectListItem {Text = "10.5 hours per day, 4 days per week", Value="10.5 hours per day, 4 days per week"  },
+            new SelectListItem {Text = "10.5 hours per day, 5 days per week", Value="10.5 hours per day, 5 days per week"  },
+            new SelectListItem {Text = "11 hours per day, 4 days per week", Value="11 hours per day, 4 days per week"  },
+            new SelectListItem {Text = "11 hours per day, 5 days per week", Value="11 hours per day, 5 days per week"  },
+            new SelectListItem {Text = "12 hours per day, 4 days per week", Value="12 hours per day, 4 days per week"  },
+            new SelectListItem {Text = "12 hours per day, 5 days per week", Value="12 hours per day, 5 days per week"  },
+            }, new { @class = "form-control" })
         </div>
-        <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Injury_Date, "Injury Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @class = "form-control", placeholder = "8/14/2021" } })
+            @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @class = "datepicker" } })
+            <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+            <script src="~/Scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+            <script>
+                $(document).ready(function () {
+                    $(".datepicker").datepicker({
+                        dateFormat: "mm/dd/yy",
+                        changemonth: true,
+                        changeyear: true,
+                    }).datepicker("setDate", new Date());;
+                });
+            </script>
             @Html.ValidationMessageFor(model => model.Injury_Date, "", new { @class = "text-danger" })
         </div>
         <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
@@ -78,14 +121,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Injury_Time, "Injury Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Injury_Time, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Injury_Time, new { htmlAttributes = new { @class = "form-control", placeholder = "2:00pm" } })
             @Html.ValidationMessageFor(model => model.Injury_Time, "", new { @class = "text-danger" })
         </div>
         <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DOT_12, "DOT 12", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.DOT_12, "Injury Documented on DOT 12?", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.DOT_12)
@@ -97,7 +140,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Start_Time, "Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Start_Time, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Start_Time, new { htmlAttributes = new { @class = "form-control", placeholder = "8:00am" } })
             @Html.ValidationMessageFor(model => model.Start_Time, "", new { @class = "text-danger" })
         </div>
         <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
@@ -113,10 +156,16 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Side, "Side", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Side, "Which Side", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Side, new { htmlAttributes = new { @class = "form-control" }, placeholder = "Left" })
-            @Html.ValidationMessageFor(model => model.Side, "", new { @class = "text-danger" })
+            @Html.DropDownList("Work_Schedule", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "Left", Value="Left"  },
+            new SelectListItem {Text = "Right", Value="Right"  },
+            new SelectListItem {Text = "Both", Value="Both"  },
+            new SelectListItem {Text = "Not Applicable", Value="Not Applicable"  },
+            new SelectListItem {Text = "See Comments", Value="See Comments"  },
+            }, new { @class = "form-control" })
         </div>
     </div>
 
@@ -132,10 +181,21 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Return_to_Work_Date, "Return to Work Date", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Return_to_Work_Date, "", new { @class = "text-danger" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @class = "datepicker" } })
+            <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+            <script src="~/Scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+            <script>
+                $(document).ready(function () {
+                    $(".datepicker").datepicker({
+                        dateFormat: "mm/dd/yy",
+                        changemonth: true,
+                        changeyear: true,
+                    }).datepicker("setDate", new Date());;
+                });
+            </script>
         </div>
+        <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
     </div>
 
     <div class="form-group">
@@ -161,7 +221,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Injury_Description, "Injury Description", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Injury_Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Injury_Description, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Injury_Description, "", new { @class = "text-danger" })
         </div>
         <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
@@ -170,37 +230,37 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Equipment, "Equipment", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Equipment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Equipment, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Equipment, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Witness, "Witness", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Witness, "Name witnesses if any (If none, state no witnesses).", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Witness, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Witness, new { htmlAttributes = new { @class = "form-control", @cols = 40, @rows = 10 } })
             @Html.ValidationMessageFor(model => model.Witness, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Questioned, "Questioned", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Questioned, "If the injury is questioned, state why (If not questioned, say 'Not Questioned').", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Questioned, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Questioned, new { htmlAttributes = new { @class = "form-control", placeholder = "Not Questioned" } })
             @Html.ValidationMessageFor(model => model.Questioned, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Medical_History, "Medical HIstory", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Medical_History, "If there is a prior relevant medical history, mention what it is (If none known, state none known).", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Medical_History, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Medical_History, new { htmlAttributes = new { @class = "form-control", placeholder = "None known" } })
             @Html.ValidationMessageFor(model => model.Medical_History, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Inbox_Submitted, "Inbox Submitted", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Inbox_Submitted, "Was this inbox submitted within 48 hours/2 business days of the injury date?", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.Inbox_Submitted)
@@ -212,7 +272,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Comments, "Comments", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -220,7 +280,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.User_Email, "User Email", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control", placeholder = "John.Doe@wv.gov" } })
             @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
         </div>
         <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
@@ -282,12 +342,12 @@
         </div>
     </div>
 </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
