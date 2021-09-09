@@ -218,11 +218,12 @@ namespace HR_APP_V2.Controllers
                         }
                     }
                 }
-                string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
+                /* string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
                 for (int i = 0; i < recipients.Length; i++)
                 {
                     SendEmail(wC_Inbox.Org_Number, wC_Inbox.District, recipients[i]);
                 }
+                */
                 return RedirectToAction("Index");
             }
 
@@ -398,7 +399,7 @@ namespace HR_APP_V2.Controllers
             base.Dispose(disposing);
         }
 
-        public void SendEmail(int? orgNum, int? district, string recipient) 
+        public void SendEmail(string orgNum, int? district, string recipient) 
         {
             //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
             string emailText = "<html><body><div><br>A new workers comp form has been created for an employee in district " + district +  " org " + orgNum + ".</ div ></ body ></ html >";

@@ -17,26 +17,26 @@ namespace HR_APP_V2.Models
         public long ID { get; set; }
         public int EmployeeID { get; set; }
         public int District { get; set; }
-        public int Org_Number { get; set; }
+        public string Org_Number { get; set; }
         public System.DateTime Hire_Date { get; set; }
         public string Job_Title { get; set; }
-        public int Work_Schedule { get; set; }
+        public string Work_Schedule { get; set; }
         public System.DateTime Injury_Date { get; set; }
         public string Injury_Time { get; set; }
-        public bool DOT_12 { get; set; }
+        public string DOT_12 { get; set; }
         public string Start_Time { get; set; }
         public string Injured_Body_Part { get; set; }
         public string Side { get; set; }
         public bool Missing_Work { get; set; }
         public Nullable<System.DateTime> Return_to_Work_Date { get; set; }
-        public Nullable<bool> Doctors_Release { get; set; }
-        public Nullable<bool> Treatment { get; set; }
+        public string Doctors_Release { get; set; }
+        public bool Treatment { get; set; }
         public string Injury_Description { get; set; }
         public string Equipment { get; set; }
         public string Witness { get; set; }
         public string Questioned { get; set; }
         public string Medical_History { get; set; }
-        public bool Inbox_Submitted { get; set; }
+        public string Inbox_Submitted { get; set; }
         public string Comments { get; set; }
         public string User_Email { get; set; }
         public string Contact_Email { get; set; }
@@ -66,6 +66,7 @@ namespace HR_APP_V2.Models
         public string HR_User { get; set; }
         public Nullable<System.DateTime> Date_Modified { get; set; }
         public string Status { get; set; }
+        public string Inbox_Reason { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

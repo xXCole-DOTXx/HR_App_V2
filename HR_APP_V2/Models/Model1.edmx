@@ -28,26 +28,27 @@
           <Property Name="EncovaID" Type="nvarchar" MaxLength="50" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="District" Type="int" Nullable="false" />
-          <Property Name="Org_Number" Type="int" Nullable="false" />
+          <Property Name="Org_Number" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="Hire_Date" Type="date" Nullable="false" />
           <Property Name="Job_Title" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Work_Schedule" Type="int" Nullable="false" />
+          <Property Name="Work_Schedule" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Injury_Date" Type="date" Nullable="false" />
           <Property Name="Injury_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="DOT_12" Type="bit" Nullable="false" />
+          <Property Name="DOT_12" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Start_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Injured_Body_Part" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Side" Type="nvarchar" MaxLength="10" />
           <Property Name="Missing_Work" Type="bit" Nullable="false" />
           <Property Name="Return_to_Work_Date" Type="date" />
-          <Property Name="Doctors_Release" Type="bit" />
+          <Property Name="Doctors_Release" Type="nvarchar" MaxLength="25" />
           <Property Name="Treatment" Type="bit" />
           <Property Name="Injury_Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Equipment" Type="nvarchar" MaxLength="250" />
           <Property Name="Witness" Type="nvarchar" MaxLength="50" />
           <Property Name="Questioned" Type="nvarchar" MaxLength="250" />
           <Property Name="Medical_History" Type="nvarchar" MaxLength="250" />
-          <Property Name="Inbox_Submitted" Type="bit" Nullable="false" />
+          <Property Name="Inbox_Submitted" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Inbox_Reason" Type="nvarchar(max)" />
           <Property Name="Comments" Type="nvarchar" MaxLength="250" />
           <Property Name="User_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
           <Property Name="Contact_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
@@ -124,26 +125,26 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
 		  <Property Name="District" Type="Int32" Nullable="false" />
-          <Property Name="Org_Number" Type="Int32" Nullable="false" />
+          <Property Name="Org_Number" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
           <Property Name="Hire_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Work_Schedule" Type="Int32" Nullable="false" />
+          <Property Name="Work_Schedule" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Injury_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Injury_Time" Type="String" MaxLength="10" Nullable="false" Unicode="true" FixedLength="false" />
-          <Property Name="DOT_12" Type="Boolean" Nullable="false" />
+          <Property Name="DOT_12" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="Start_Time" Type="String" MaxLength="10" Nullable="false" Unicode="true" FixedLength="false" />
           <Property Name="Injured_Body_Part" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Side" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Missing_Work" Type="Boolean" Nullable="false" />
           <Property Name="Return_to_Work_Date" Type="DateTime" Precision="0" />
-          <Property Name="Doctors_Release" Type="Boolean" />
+          <Property Name="Doctors_Release" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
           <Property Name="Treatment" Type="Boolean" />
           <Property Name="Injury_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Equipment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Witness" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Questioned" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Medical_History" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Inbox_Submitted" Type="Boolean" Nullable="false" />
+          <Property Name="Inbox_Submitted" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="User_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Contact_Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
@@ -174,6 +175,7 @@
           <Property Name="HR_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
           <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Inbox_Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_WC_Inbox_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
@@ -220,6 +222,7 @@
           <EntitySetMapping Name="WC_Inbox">
             <EntityTypeMapping TypeName="Human_ResourcesModel.WC_Inbox">
               <MappingFragment StoreEntitySet="WC_Inbox">
+                <ScalarProperty Name="Inbox_Reason" ColumnName="Inbox_Reason" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
                 <ScalarProperty Name="HR_User" ColumnName="HR_User" />
