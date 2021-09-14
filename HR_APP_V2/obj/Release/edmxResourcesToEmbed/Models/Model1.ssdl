@@ -23,26 +23,27 @@
     <Property Name="EncovaID" Type="nvarchar" MaxLength="50" />
     <Property Name="EmployeeID" Type="int" Nullable="false" />
     <Property Name="District" Type="int" Nullable="false" />
-    <Property Name="Org_Number" Type="int" Nullable="false" />
+    <Property Name="Org_Number" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="Hire_Date" Type="date" Nullable="false" />
     <Property Name="Job_Title" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Work_Schedule" Type="int" Nullable="false" />
+    <Property Name="Work_Schedule" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Injury_Date" Type="date" Nullable="false" />
     <Property Name="Injury_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="DOT_12" Type="bit" Nullable="false" />
+    <Property Name="DOT_12" Type="nvarchar" MaxLength="15" Nullable="false" />
     <Property Name="Start_Time" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Injured_Body_Part" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Side" Type="nvarchar" MaxLength="10" />
     <Property Name="Missing_Work" Type="bit" Nullable="false" />
     <Property Name="Return_to_Work_Date" Type="date" />
-    <Property Name="Doctors_Release" Type="bit" />
+    <Property Name="Doctors_Release" Type="nvarchar" MaxLength="25" />
     <Property Name="Treatment" Type="bit" />
     <Property Name="Injury_Description" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Equipment" Type="nvarchar" MaxLength="250" />
     <Property Name="Witness" Type="nvarchar" MaxLength="50" />
     <Property Name="Questioned" Type="nvarchar" MaxLength="250" />
     <Property Name="Medical_History" Type="nvarchar" MaxLength="250" />
-    <Property Name="Inbox_Submitted" Type="bit" Nullable="false" />
+    <Property Name="Inbox_Submitted" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Inbox_Reason" Type="nvarchar(max)" />
     <Property Name="Comments" Type="nvarchar" MaxLength="250" />
     <Property Name="User_Email" Type="nvarchar" MaxLength="254" Nullable="false" />
     <Property Name="Contact_Email" Type="nvarchar" MaxLength="254" Nullable="false" />

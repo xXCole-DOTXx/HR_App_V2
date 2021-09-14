@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using HR_APP_V2.Models;
@@ -192,7 +193,7 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,InboxID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Status,Add_User,Date_Added")] WC_Inbox wC_Inbox, string fullName)
+        public ActionResult Create([Bind(Include = "ID,InboxID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Inbox_Reason,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4,Status,Add_User,Date_Added")] WC_Inbox wC_Inbox, string fullName)
         {
             if (ModelState.IsValid)
             {
@@ -218,6 +219,12 @@ namespace HR_APP_V2.Controllers
                         }
                     }
                 }
+                Regex rx = new Regex(@"[^0-9]");
+                if (rx.IsMatch(wC_Inbox.Org_Number))
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Org Number must be a 4 digit number." });
+                }
+                
                 /* string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
                 for (int i = 0; i < recipients.Length; i++)
                 {
@@ -259,7 +266,7 @@ namespace HR_APP_V2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,InboxID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4, Add_User")] WC_Inbox wC_Inbox)
+        public ActionResult Edit([Bind(Include = "ID,InboxID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Inbox_Reason,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4, Add_User")] WC_Inbox wC_Inbox)
         {
             if (ModelState.IsValid)
             {

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b95c3cecf6f943fa902a033e8e55d5de" Name="Diagram1">
+      <Diagram DiagramId="b95c3cecf6f943fa902a033e8e55d5de" Name="Diagram1" ZoomLevel="23">
         <EntityTypeShape EntityType="Human_ResourcesModel.Employee" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Human_ResourcesModel.WC_Inbox" Width="3.75" PointX="3" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="Human_ResourcesModel.FK_WC_Inbox_Employee" ManuallyRouted="false" />

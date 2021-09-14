@@ -6,6 +6,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using HR_APP_V2.Models;
@@ -117,6 +118,15 @@ namespace HR_APP_V2.Controllers
                             return RedirectToAction("ErrorMessage", new { message = err.ToString() } );
                         }
                     }
+                }
+                if(employee.Phone_Number.Length != 12)
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Phone number must be a 10 digit number seperated by hyphens ( - )." });
+                }
+                Regex rx = new Regex(@"^[0-9\-]*$");
+                if (!rx.IsMatch(employee.Phone_Number))
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Phone number must be a 10 digit number seperated by hyphens ( - )." });
                 }
                 if (from == 1)
                 {

@@ -21,6 +21,11 @@ ul {
     background: #f2f2f2;
     width: 50%;
     height: 300px;
+    box-shadow: 0 3px 7px 0 rgba(30, 38, 46, 0.21);
+}
+
+.workCards:hover {
+    transform: scale( 1.2 );
 }
 
 .top-bg {
