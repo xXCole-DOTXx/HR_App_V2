@@ -199,6 +199,42 @@ namespace HR_APP_V2.Controllers
             {
                 wC_Inbox.Add_User = User.Identity.Name;
                 wC_Inbox.Date_Added = DateTime.Now;
+
+                //Check data before submitting
+                Regex rx = new Regex(@"[^0-9]"); //Everything that isn't a number
+                if (rx.IsMatch(wC_Inbox.Org_Number))
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Org Number must be a 4 digit number." });
+                }
+                //Regex timeRx = new Regex(@"/^(0?[1-9]|1[0-2]):([0-5]\d)\s?((?:A|P)\.?M\.?)$/i");
+                Regex timeRx = new Regex(@"/^(1[0-2]|0?[1-9]):([0-5]\d)\s?((?:A|P)\.?M\.?)$/i");
+                if (wC_Inbox.Injury_Time.Length <= 7 && wC_Inbox.Injury_Time.Length >= 6)
+                {
+                    if (timeRx.IsMatch(wC_Inbox.Injury_Time))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Found a match!");
+                        return RedirectToAction("ErrorMessage", new { message = "Injury Time must be in the proper time format: 9:30am." });
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Injury Time must be in the proper time format: 9:30am. The data you entered included either too many or too few characters." });
+                }
+
+                if (wC_Inbox.Start_Time.Length <= 7 && wC_Inbox.Start_Time.Length >= 6)
+                {
+                    if (timeRx.IsMatch(wC_Inbox.Start_Time))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Found a match!");
+                        return RedirectToAction("ErrorMessage", new { message = "Start Time must be in the proper time format: 9:30am." });
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Start Time must be in the proper time format: 9:30am. The data you entered included either too many or too few characters." });
+                }
+                //Checking end
+
                 try
                 {
                     db.WC_Inbox.Add(wC_Inbox);
@@ -219,12 +255,6 @@ namespace HR_APP_V2.Controllers
                         }
                     }
                 }
-                Regex rx = new Regex(@"[^0-9]");
-                if (rx.IsMatch(wC_Inbox.Org_Number))
-                {
-                    return RedirectToAction("ErrorMessage", new { message = "Org Number must be a 4 digit number." });
-                }
-                
                 /* string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
                 for (int i = 0; i < recipients.Length; i++)
                 {
