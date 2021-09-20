@@ -25,13 +25,16 @@
 }
 
 .innerBox {
+    display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 250px;
     border: 1px solid black;
-    background-color: lightgrey;
+    background-color: lightyellow;
     border-radius: 5px;
 }
 
-.mark {
-    color: #FF0000;
+.title2 {
+    display: flex;
+    justify-content: center;
 }

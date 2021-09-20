@@ -32,7 +32,7 @@ namespace HR_APP_V2.Models
         public string Side { get; set; }
         public bool Missing_Work { get; set; }
         [DataType(DataType.Date)]
-        public Nullable<System.DateTime> Return_to_Work_Date { get; set; }
+        public System.DateTime Return_to_Work_Date { get; set; }
         public string Doctors_Release { get; set; }
         public bool Treatment { get; set; }
         public string Injury_Description { get; set; }

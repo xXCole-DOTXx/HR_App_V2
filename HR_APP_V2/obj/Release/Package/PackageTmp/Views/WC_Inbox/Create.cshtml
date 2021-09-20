@@ -50,7 +50,7 @@
                         @Html.EditorFor(model => model.Org_Number, new { htmlAttributes = new { @class = "form-control", placeholder = "0025" } })
                         @Html.ValidationMessageFor(model => model.Org_Number, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-right:1%"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -59,7 +59,7 @@
                         @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @class = "datepicker" } })
                         @Html.ValidationMessageFor(model => model.Hire_Date, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -68,7 +68,7 @@
                         @Html.EditorFor(model => model.Job_Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Programmer Analyst" } })
                         @Html.ValidationMessageFor(model => model.Job_Title, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -94,7 +94,7 @@
             </div>
             <div class="infobox">
                 <div class="innerBox">
-                    <h4>Employment information</h4>
+                    <h4 class="title2">Employment information</h4>
                     <hr style="border:0px;border-top:1px solid black;width:75%;" />
                     <p>Information Related to the Employee's Position</p>
                 </div>
@@ -111,7 +111,7 @@
                         @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @class = "datepicker" } })
                         @Html.ValidationMessageFor(model => model.Injury_Date, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -120,7 +120,7 @@
                         @Html.EditorFor(model => model.Injury_Time, new { htmlAttributes = new { @class = "form-control", placeholder = "2:00pm" } })
                         @Html.ValidationMessageFor(model => model.Injury_Time, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -142,7 +142,7 @@
                         @Html.EditorFor(model => model.Start_Time, new { htmlAttributes = new { @class = "form-control", placeholder = "8:00am" } })
                         @Html.ValidationMessageFor(model => model.Start_Time, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -151,7 +151,7 @@
                         @Html.EditorFor(model => model.Injured_Body_Part, new { htmlAttributes = new { @class = "form-control", placeholder = "Forearm" } })
                         @Html.ValidationMessageFor(model => model.Injured_Body_Part, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -183,7 +183,7 @@
                     <div class="col-md-4">
                         @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @class = "datepicker" } })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -215,7 +215,7 @@
                         @Html.TextAreaFor(model => model.Injury_Description, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Injury_Description, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -279,7 +279,7 @@
             </div>
             <div class="infobox">
                 <div class="innerBox">
-                    <h4>Injury</h4>
+                    <h4 class="title2">Injury</h4>
                     <hr style="border:0px;border-top:1px solid black;width:75%;" />
                     <p>Enter Information About the Employee's Injury</p>
                 </div>
@@ -296,7 +296,7 @@
                         @Html.EditorFor(model => model.User_Email, new { htmlAttributes = new { @class = "form-control", placeholder = "John.Doe@wv.gov" } })
                         @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -305,7 +305,7 @@
                         @Html.EditorFor(model => model.Contact_Email, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Contact_Email, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -314,7 +314,7 @@
                         @Html.EditorFor(model => model.Specialist_Email, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Specialist_Email, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-sm-1" style="margin-left:-100px"><p style="color:#FF0000">*</p></div>
+                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">
@@ -351,7 +351,7 @@
             </div>
             <div class="infobox">
                 <div class="innerBox">
-                    <h4>Email</h4>
+                    <h4 class="title2">Email</h4>
                     <hr style="border:0px;border-top:1px solid black;width:75%;" />
                     <p>Enter Your Email Address , a District Contact's Email Address, and an Occupational Safety Specialist's Email Address. Add Optional Email Addresses if you are submitting the form on behalf of the designated reporter and you want the designated reporter to receive a copy.</p>
                 </div>

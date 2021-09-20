@@ -206,13 +206,11 @@ namespace HR_APP_V2.Controllers
                 {
                     return RedirectToAction("ErrorMessage", new { message = "Org Number must be a 4 digit number." });
                 }
-                //Regex timeRx = new Regex(@"/^(0?[1-9]|1[0-2]):([0-5]\d)\s?((?:A|P)\.?M\.?)$/i");
-                Regex timeRx = new Regex(@"/^(1[0-2]|0?[1-9]):([0-5]\d)\s?((?:A|P)\.?M\.?)$/i");
+                Regex timeRx = new Regex(@"^(1[0-2]|0?[1-9]):([0-5]\d)\s?((?:A|P)\.?M\.?)$", RegexOptions.IgnoreCase);
                 if (wC_Inbox.Injury_Time.Length <= 7 && wC_Inbox.Injury_Time.Length >= 6)
                 {
-                    if (timeRx.IsMatch(wC_Inbox.Injury_Time))
+                    if (!timeRx.IsMatch(wC_Inbox.Injury_Time))
                     {
-                        System.Diagnostics.Debug.WriteLine("Found a match!");
                         return RedirectToAction("ErrorMessage", new { message = "Injury Time must be in the proper time format: 9:30am." });
                     }
                 }
@@ -223,9 +221,8 @@ namespace HR_APP_V2.Controllers
 
                 if (wC_Inbox.Start_Time.Length <= 7 && wC_Inbox.Start_Time.Length >= 6)
                 {
-                    if (timeRx.IsMatch(wC_Inbox.Start_Time))
+                    if (!timeRx.IsMatch(wC_Inbox.Start_Time))
                     {
-                        System.Diagnostics.Debug.WriteLine("Found a match!");
                         return RedirectToAction("ErrorMessage", new { message = "Start Time must be in the proper time format: 9:30am." });
                     }
                 }
@@ -255,12 +252,12 @@ namespace HR_APP_V2.Controllers
                         }
                     }
                 }
-                /* string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
+                string[] recipients = { "E096752@wv.gov", "Lydia.j.bunner@wv.gov", "Tina.m.huffman@wv.gov", "jonathan.w.schaffer@wv.gov", "kathryn.l.hill@wv.gov", "brandon.j.cook@wv.gov", "kristen.m.shrewsbury@wv.gov", "debra.k.davis@wv.gov" };
                 for (int i = 0; i < recipients.Length; i++)
                 {
                     SendEmail(wC_Inbox.Org_Number, wC_Inbox.District, recipients[i]);
                 }
-                */
+                
                 return RedirectToAction("Index");
             }
 
@@ -292,8 +289,6 @@ namespace HR_APP_V2.Controllers
         }
 
         // POST: WC_Inbox/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,InboxID,EmployeeID,District,Org_Number,Hire_Date,Job_Title,Work_Schedule,Injury_Date,Injury_Time,DOT_12,Start_Time,Injured_Body_Part,Side,Missing_Work,Return_to_Work_Date,Doctors_Release,Treatment,Injury_Description,Equipment,Witness,Questioned,Medical_History,Inbox_Submitted,Inbox_Reason,Comments,User_Email,Contact_Email,Specialist_Email,Optional_Email,Optional_Email2,Optional_Email3,Optional_Email4, Add_User")] WC_Inbox wC_Inbox)
