@@ -99,6 +99,15 @@ namespace HR_APP_V2.Controllers
             {
                 employee.Add_User = User.Identity.Name;
                 employee.Date_Added = DateTime.Now;
+                if (employee.Phone_Number.Length != 12)
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Phone number must be a 10 digit number seperated by hyphens ( - )." });
+                }
+                Regex rx = new Regex(@"^[0-9\-]*$");
+                if (!rx.IsMatch(employee.Phone_Number))
+                {
+                    return RedirectToAction("ErrorMessage", new { message = "Phone number must be a 10 digit number seperated by hyphens ( - )." });
+                }
                 try
                 {
                     db.Employees.Add(employee);
@@ -118,15 +127,6 @@ namespace HR_APP_V2.Controllers
                             return RedirectToAction("ErrorMessage", new { message = err.ToString() } );
                         }
                     }
-                }
-                if(employee.Phone_Number.Length != 12)
-                {
-                    return RedirectToAction("ErrorMessage", new { message = "Phone number must be a 10 digit number seperated by hyphens ( - )." });
-                }
-                Regex rx = new Regex(@"^[0-9\-]*$");
-                if (!rx.IsMatch(employee.Phone_Number))
-                {
-                    return RedirectToAction("ErrorMessage", new { message = "Phone number must be a 10 digit number seperated by hyphens ( - )." });
                 }
                 if (from == 1)
                 {

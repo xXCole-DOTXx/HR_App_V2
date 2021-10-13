@@ -7,7 +7,7 @@
     display: flex;
 }
 
-.container {
+.mainContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;

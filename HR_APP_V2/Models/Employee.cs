@@ -25,7 +25,7 @@ namespace HR_APP_V2.Models
         public string Last_Name { get; set; }
         public string Gender { get; set; }
         public string Marital_Status { get; set; }
-        public Nullable<int> SSN { get; set; }
+        public string SSN { get; set; }
         public string Address { get; set; }
         public string Phone_Number { get; set; }
         public string Add_User { get; set; }

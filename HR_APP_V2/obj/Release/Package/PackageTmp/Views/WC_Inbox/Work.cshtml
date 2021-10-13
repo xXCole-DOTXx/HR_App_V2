@@ -21,7 +21,7 @@
     @Html.HiddenFor(model => model.Add_User)
     @Html.HiddenFor(model => model.Date_Added)
 
-    <div class="container">
+    <div class="mainContainer">
         <div class="Info">
             <div class="form-group">
                 @Html.LabelFor(model => model.District, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -54,7 +54,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Hire_Date, "Hire Date", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @Value = Model.Hire_Date.ToString("yyyy-MM-dd"), @class = "datepicker" } })
+                    @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @class = "datepicker" } })
                     @Html.ValidationMessageFor(model => model.Hire_Date, "", new { @class = "text-danger" })
                 </div>
                 <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
@@ -106,7 +106,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Injury_Date, "Injury Date", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @Value = Model.Injury_Date.ToString("yyyy-MM-dd"), @class = "datepicker" } })
+                    @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @class = "datepicker" } })
                     @Html.ValidationMessageFor(model => model.Injury_Date, "", new { @class = "text-danger" })
                 </div>
                 <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
@@ -179,7 +179,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Return_to_Work_Date, "Return to Work Date", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @Value = Model.Return_to_Work_Date.ToString("yyyy-MM-dd"), @class = "datepicker" } })
+                    @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @class = "datepicker" } })
                 </div>
                 <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
             </div>

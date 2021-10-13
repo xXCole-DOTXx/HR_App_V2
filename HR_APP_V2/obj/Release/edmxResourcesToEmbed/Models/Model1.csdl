@@ -9,7 +9,7 @@
     <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="Marital_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="SSN" Type="Int32" />
+    <Property Name="SSN" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
     <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Phone_Number" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
     <Property Name="Add_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

@@ -23,13 +23,14 @@
 
         @Html.Hidden("fullName", (object)ViewBag.Name)
 
-        <div class="container">
+        <div class="mainContainer">
             <div class="Info">
                 <div class="form-group">
                     @Html.LabelFor(model => model.District, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("District", new List<SelectListItem>
                         {
+                       new SelectListItem {Text = "", Value=""  },
                         new SelectListItem {Text = "District 1", Value="1"  },
                         new SelectListItem {Text = "District 2", Value="2"  },
                         new SelectListItem {Text = "District 3", Value="3"  },
@@ -103,7 +104,7 @@
 
         <hr style="border:0px;border-top:1px solid grey;width:75%;" />
 
-        <div class="container">
+        <div class="mainContainer">
             <div class="Info">
                 <div class="form-group">
                     @Html.LabelFor(model => model.Injury_Date, "Injury Date", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -288,7 +289,7 @@
         <hr style="border:0px;border-top:1px solid grey;width:75%;" />
 
 
-        <div class="container">
+        <div class="mainContainer">
             <div class="Info">
                 <div class="form-group">
                     @Html.LabelFor(model => model.User_Email, "User Email", htmlAttributes: new { @class = "control-label col-md-2" })

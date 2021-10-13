@@ -9,7 +9,7 @@
     <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Gender" Type="nvarchar" MaxLength="10" />
     <Property Name="Marital_Status" Type="nvarchar" MaxLength="10" />
-    <Property Name="SSN" Type="int" />
+    <Property Name="SSN" Type="nvarchar" MaxLength="4" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
     <Property Name="Phone_Number" Type="nvarchar" MaxLength="12" />
     <Property Name="Add_User" Type="nvarchar" MaxLength="50" />

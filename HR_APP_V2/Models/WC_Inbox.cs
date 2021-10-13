@@ -11,19 +11,16 @@ namespace HR_APP_V2.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class WC_Inbox
     {
         public long ID { get; set; }
         public int EmployeeID { get; set; }
         public int District { get; set; }
         public string Org_Number { get; set; }
-        [DataType(DataType.Date)]
         public System.DateTime Hire_Date { get; set; }
         public string Job_Title { get; set; }
         public string Work_Schedule { get; set; }
-        [DataType(DataType.Date)]
         public System.DateTime Injury_Date { get; set; }
         public string Injury_Time { get; set; }
         public string DOT_12 { get; set; }
@@ -31,8 +28,7 @@ namespace HR_APP_V2.Models
         public string Injured_Body_Part { get; set; }
         public string Side { get; set; }
         public bool Missing_Work { get; set; }
-        [DataType(DataType.Date)]
-        public System.DateTime Return_to_Work_Date { get; set; }
+        public Nullable<System.DateTime> Return_to_Work_Date { get; set; }
         public string Doctors_Release { get; set; }
         public bool Treatment { get; set; }
         public string Injury_Description { get; set; }
