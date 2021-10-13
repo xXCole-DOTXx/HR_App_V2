@@ -30,7 +30,7 @@
                     <div class="col-md-10">
                         @Html.DropDownList("District", new List<SelectListItem>
                         {
-                       new SelectListItem {Text = "", Value=""  },
+                        new SelectListItem {Text = "", Value=null  },
                         new SelectListItem {Text = "District 1", Value="1"  },
                         new SelectListItem {Text = "District 2", Value="2"  },
                         new SelectListItem {Text = "District 3", Value="3"  },
@@ -183,8 +183,8 @@
                     @Html.LabelFor(model => model.Return_to_Work_Date, "Return to Work Date", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-4">
                         @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @class = "datepicker" } })
+                        @Html.ValidationMessageFor(model => model.Return_to_Work_Date, "", new { @class = "text-danger" })
                     </div>
-                    <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
                 </div>
 
                 <div class="form-group">

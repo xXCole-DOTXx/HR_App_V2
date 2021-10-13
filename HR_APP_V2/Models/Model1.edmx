@@ -27,7 +27,7 @@
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EncovaID" Type="nvarchar" MaxLength="50" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
-          <Property Name="District" Type="int" Nullable="false" />
+          <Property Name="District" Type="int" />
           <Property Name="Org_Number" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="Hire_Date" Type="date" Nullable="false" />
           <Property Name="Job_Title" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -124,7 +124,7 @@
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-		  <Property Name="District" Type="Int32" Nullable="false" />
+		  <Property Name="District" Type="Int32" />
           <Property Name="Org_Number" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
           <Property Name="Hire_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
