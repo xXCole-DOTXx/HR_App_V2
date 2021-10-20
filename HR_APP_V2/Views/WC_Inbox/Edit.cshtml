@@ -43,6 +43,15 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.Division, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Division, new { htmlAttributes = new { @class = "form-control", placeholder = "0036" } })
+                    @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
+                </div>
+                <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.Org_Number, "Org Number", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.Org_Number, new { htmlAttributes = new { @class = "form-control", placeholder = "0025" } })
@@ -54,7 +63,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Hire_Date, "Hire Date", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @Value = Model.Hire_Date.ToString("yyyy-MM-dd"), @class = "datepicker" } })
+                    @Html.EditorFor(model => model.Hire_Date, new { htmlAttributes = new { @class = "datepicker" } })
                     @Html.ValidationMessageFor(model => model.Hire_Date, "", new { @class = "text-danger" })
                 </div>
                 <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
@@ -106,7 +115,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Injury_Date, "Injury Date", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @Value = Model.Injury_Date.ToString("yyyy-MM-dd"), @class = "datepicker" } })
+                    @Html.EditorFor(model => model.Injury_Date, new { htmlAttributes = new { @class = "datepicker" } })
                     @Html.ValidationMessageFor(model => model.Injury_Date, "", new { @class = "text-danger" })
                 </div>
                 <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
@@ -129,7 +138,6 @@
                     new SelectListItem {Text = "Yes", Value="Yes"  },
                     new SelectListItem {Text = "No", Value="No"  },
                     new SelectListItem {Text = "DOT-12 Pending", Value="DOT-12 Pending"  },
-                    new SelectListItem {Text = "Not Applicable", Value="Not Applicable"  },
                     }, new { @class = "form-control" })
                 </div>
             </div>
@@ -169,19 +177,20 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Missing_Work, "Missing Work", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Missing_Work)
-                        @Html.ValidationMessageFor(model => model.Missing_Work, "", new { @class = "text-danger" })
-                    </div>
+                    @Html.DropDownList("Missing_Work", new List<SelectListItem>
+                    {
+                    new SelectListItem {Text = "Yes", Value="True"  },
+                    new SelectListItem {Text = "No", Value="False"  },
+                    }, new { @class = "form-control" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Return_to_Work_Date, "Return to Work Date", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @Value = Model.Return_to_Work_Date.ToString("yyyy-MM-dd"), @class = "datepicker" } })
+                @Html.LabelFor(model => model.Return_to_Work_Date, "Return to Work Date (if applicable).", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Return_to_Work_Date, new { htmlAttributes = new { @class = "datepicker" } })
+                    @Html.ValidationMessageFor(model => model.Return_to_Work_Date, "", new { @class = "text-danger" })
                 </div>
-                <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
             </div>
 
             <div class="form-group">
@@ -200,15 +209,16 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Treatment, "Treatment Pursued/Scheduled?", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(model => model.Treatment)
-                        @Html.ValidationMessageFor(model => model.Treatment, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                    @Html.DropDownList("Treatment", new List<SelectListItem>
+                    {
+                    new SelectListItem {Text = "Yes", Value="True"  },
+                    new SelectListItem {Text = "No", Value="False"  },
+                    }, new { @class = "form-control" })
+                </div>>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Injury_Description, "Injury Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Injury_Description, "State what job the worker was performing when Injured. Describe how the injury happened. Name objects, tools, eqipment, or vehicles involved.", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.TextAreaFor(model => model.Injury_Description, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Injury_Description, "", new { @class = "text-danger" })
@@ -217,7 +227,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Equipment, "Equipment", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Equipment, "List relevant saftey equipment in use at the time of injury.", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.Equipment, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Equipment, "", new { @class = "text-danger" })
@@ -260,7 +270,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Inbox_Reason, "Reason", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Inbox_Reason, "IF no explain why submitted late.", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.Inbox_Reason, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Inbox_Reason, "", new { @class = "text-danger" })

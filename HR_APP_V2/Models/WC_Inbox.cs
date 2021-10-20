@@ -22,7 +22,7 @@ namespace HR_APP_V2.Models
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public Nullable<System.DateTime> Hire_Date { get; set; } 
+        public Nullable<System.DateTime> Hire_Date { get; set; }
         public string Job_Title { get; set; }
         public string Work_Schedule { get; set; }
         [Required]
@@ -76,6 +76,7 @@ namespace HR_APP_V2.Models
         public Nullable<System.DateTime> Date_Modified { get; set; }
         public string Status { get; set; }
         public string Inbox_Reason { get; set; }
+        public string Division { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

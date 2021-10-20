@@ -74,6 +74,7 @@
     <Property Name="Date_Modified" Type="DateTime" Precision="0" />
     <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Inbox_Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Division" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_WC_Inbox_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
