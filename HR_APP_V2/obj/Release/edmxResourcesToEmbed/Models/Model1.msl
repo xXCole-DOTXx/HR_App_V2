@@ -20,6 +20,7 @@
     <EntitySetMapping Name="WC_Inbox">
       <EntityTypeMapping TypeName="Human_ResourcesModel.WC_Inbox">
         <MappingFragment StoreEntitySet="WC_Inbox">
+          <ScalarProperty Name="Division" ColumnName="Division" />
           <ScalarProperty Name="Inbox_Reason" ColumnName="Inbox_Reason" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />

@@ -216,13 +216,13 @@
                         new SelectListItem {Text = "Yes", Value="True"  },
                         new SelectListItem {Text = "No", Value="False"  },
                         }, new { @class = "form-control" })
-                    </div>>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Injury_Description, "State what job the worker was performing when Injured. Describe how the injury happened. Name objects, tools, eqipment, or vehicles involved.", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-4">
-                        @Html.TextAreaFor(model => model.Injury_Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.Injury_Description, 5, 100, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Injury_Description, "", new { @class = "text-danger" })
                     </div>
                     <div style="margin-right:1%"><p style="color:#FF0000">*</p></div>
@@ -231,7 +231,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Equipment, "List relevant saftey equipment in use at the time of injury.", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Equipment, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.Equipment, 5, 100, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Equipment, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Witness, "Name witnesses if any (If none, state no witnesses).", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Witness, new { htmlAttributes = new { @class = "form-control", @cols = 40, @rows = 10 } })
+                        @Html.TextAreaFor(model => model.Witness, 5, 100, new { htmlAttributes = new { @class = "form-control", @cols = 40, @rows = 10 } })
                         @Html.ValidationMessageFor(model => model.Witness, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Questioned, "If the injury is questioned, state why (If not questioned, say 'Not Questioned').", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Questioned, new { htmlAttributes = new { @class = "form-control", placeholder = "Not Questioned" } })
+                        @Html.TextAreaFor(model => model.Questioned, 5, 100, new { htmlAttributes = new { @class = "form-control", placeholder = "Not Questioned" } })
                         @Html.ValidationMessageFor(model => model.Questioned, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -255,7 +255,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Medical_History, "If there is a prior relevant medical history, mention what it is (If none known, state none known).", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Medical_History, new { htmlAttributes = new { @class = "form-control", placeholder = "None known" } })
+                        @Html.TextAreaFor(model => model.Medical_History, 5, 100, new { htmlAttributes = new { @class = "form-control", placeholder = "None known" } })
                         @Html.ValidationMessageFor(model => model.Medical_History, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -274,7 +274,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Inbox_Reason, "IF no explain why submitted late.", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Inbox_Reason, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.Inbox_Reason, 5, 100, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Inbox_Reason, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Comments, "Comments", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.Comments, 5, 100, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
                     </div>
                 </div>
